@@ -1,30 +1,26 @@
-# daf06de2ec514832811a98556b60b8f6
 import requests
-from datetime import date
 
-API_KEY = "daf06de2ec514832811a98556b60b8f6"
+API_KEY = "85d6761cdd6db8b5f3dab3a18c3ef144"
 
-
-def get_news(city, limit):
-    url = "https://newsapi.org/v2/top-headlines"
+def get_news(city, limit=5):
+    url = "https://gnews.io/api/v4/search"
     params = {
-        "apiKey": API_KEY,
-        "q": city,
-        "language": "es",
-        "sortBy" : "relevancy",
-        "from": date.today().isoformat(),
-    
-        "pageSize": limit
+        "q": city,          # ciudad, o "España" si quieres fallback
+        "lang": "es",
+        "max": limit,
+        "token": API_KEY
     }
-
     r = requests.get(url, params=params)
-    articles = r.json().get("articles", [])
+    data = r.json()
+    
+    print("TOTAL RESULTS:", len(data.get("articles", [])))  # debug
+
     return [
         {
             "title": a["title"],
-            "description": a["description"],
+            "description": a.get("description", ""),
             "source": a["source"]["name"],
-            "url": a["url"],
+            "url": a["url"]
         }
-        for a in articles
+        for a in data.get("articles", [])
     ]
