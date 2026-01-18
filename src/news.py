@@ -2,12 +2,11 @@ import requests
 
 API_KEY = "85d6761cdd6db8b5f3dab3a18c3ef144"
 
-def get_news(city, limit=5):
+def get_news(city):
     url = "https://gnews.io/api/v4/search"
     params = {
-        "q": city,          # ciudad, o "España" si quieres fallback
+        "q": city,
         "lang": "es",
-        "max": limit,
         "token": API_KEY
     }
     r = requests.get(url, params=params)
