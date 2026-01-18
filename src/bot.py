@@ -32,11 +32,12 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("No se encontraron noticias.")
         return
     
+    await update.message.reply_text("Generando guion...")
+    
     script = podcast_script(city, news)
-    await update.message.reply_text("Generando podcast...")
-
+    await update.message.chat.send_action(action="record_audio")
     audio_path = text_to_audio(script)
-    await update.message.reply_audio(audio=open(audio_path, "rb"), title=f"Podcast de {city}")
+    await update.message.reply_voice(voice=audio_path, caption=f"Podcast de {city}") 
     
 
 app = ApplicationBuilder().token("8328525433:AAEoUO1Eqb9X0zD58SCTvuOH4eflT-8Cg_M").build()

@@ -11,7 +11,7 @@ VOICE_ID = "T0etfMyJ0xd14aP2WsOi"
 MODEL_ID = "eleven_multilingual_v2"
 
 
-def generate_tts(text: str, output_file: str = "podcast.mp3") -> str:
+def generate_tts(text: str, output_file: str = "podcast.ogg") -> str:
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}"
 
     headers = {
