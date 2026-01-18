@@ -2,12 +2,12 @@ import os
 import requests
 
 # Carga la API Key del archivo .env
-ELEVEN_API_KEY = "sk_50784e5746366994b409ea8705a40eea22f01900fb6eb728"
+ELEVEN_API_KEY = "sk_179b1beaac8b47ff793a4600505462f9b2f8d79e2ec385da"
 
 if not ELEVEN_API_KEY:
     raise ValueError("No se encontró la API Key de ElevenLabs. Ponla en el archivo .env como ELEVENLABS_API_KEY.")
 
-VOICE_ID = "T0etfMyJ0xd14aP2WsOi" 
+VOICE_ID = "851ejYcv2BoNPjrkw93G" 
 MODEL_ID = "eleven_multilingual_v2"
 
 

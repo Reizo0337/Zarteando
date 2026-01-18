@@ -29,6 +29,8 @@ def podcast_script(city, filtered_news_text):
         Soy Zarteando, hoy os presento tal.
         ahora hablemos de la noticia x de la lista de noticias.
         Y sigues... No hace falta que pongas nada mas que lo que hay que leer sin nombres, etc.
+
+        NO MAS DE 2 MINUTOS / 3 MINUTOS POR PODCAST.
         """
 
     response = client.generate(
