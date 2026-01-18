@@ -32,3 +32,11 @@ def podcast_script(city, news, tiempo=5):
 
     return response.choices[0].message.content
     
+
+def daily_summary(city, news):
+    prompt = f"Resume las noticias más importantes de hoy en {city}:\n{news}"
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return response.choices[0].message.content
