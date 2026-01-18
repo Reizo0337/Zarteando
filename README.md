@@ -1,6 +1,6 @@
-# NewsPodBot 🎙️📰
+# Zarteando 🎙️📰
 
-¡Bienvenido a **NewsPodBot**! Tu asistente personal de noticias en Telegram.
+¡Bienvenido a **Zarteando**! Tu asistente personal de noticias en Telegram.
 
 Este bot transforma las noticias de actualidad de cualquier ciudad en un **podcast de audio** corto, entretenido y narrado de forma natural. Olvídate de leer titulares aburridos; deja que *Zarteando* (tu presentador IA) te cuente lo que está pasando.
 
