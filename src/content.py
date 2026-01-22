@@ -1,9 +1,12 @@
 from ollama import Client
+from datetime import datetime
+from utils import send_log
 
 client = Client()
 
 
 def podcast_script(city, filtered_news_text):
+    send_log(datetime.now(), f"Generating podcast script for city: {city}.")
     prompt = f"""
         Genera un guion de podcast sobre las noticias de hoy en {city}, 
         estilo cercano y natural, como si estuvieras contándole a tu amigo/ colega las noticias de hoy, algo parecido a la radio.
@@ -32,32 +35,39 @@ def podcast_script(city, filtered_news_text):
 
         NO MAS DE 2 MINUTOS / 3 MINUTOS POR PODCAST.
         """
-
-    response = client.generate(
-        model="gemma3:4b",
-        prompt=prompt,
-    )
-
-    print("AI RESPONSE (PODCAST SCRIPT):", response.response)
-
-    # Accede al texto correctamente
-    return response.response
+    try:
+        response = client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+        )
+        script = response.get("response", "")
+        send_log(datetime.now(), f"Successfully generated podcast script for city: {city}.")
+        send_log(datetime.now(), f"AI RESPONSE (PODCAST SCRIPT for {city}): {script[:100]}...")
+        return script
+    except Exception as e:
+        send_log(datetime.now(), f"Error generating podcast script for city {city}: {e}")
+        return f"Error al generar el guion para {city}."
 
 
 def daily_summary(city, news):
-
+    send_log(datetime.now(), f"Generating daily summary for city: {city}.")
     prompt = f"Resume las noticias más importantes de hoy en {city}:\n{news}"
 
-    response = client.generate(
-        model="gemma3:4b",
-        prompt=prompt,
-    )
-
-    print("AI RESPONSE (PODCAST SCRIPT):", response.response)
-
-    return response.response
+    try:
+        response = client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+        )
+        summary = response.get("response", "")
+        send_log(datetime.now(), f"Successfully generated daily summary for city: {city}.")
+        send_log(datetime.now(), f"AI RESPONSE (DAILY SUMMARY for {city}): {summary[:100]}...")
+        return summary
+    except Exception as e:
+        send_log(datetime.now(), f"Error generating daily summary for city {city}: {e}")
+        return f"Error al generar el resumen para {city}."
 
 def select_and_adapt_news(city, news, user_interests):
+    send_log(datetime.now(), f"Selecting and adapting news for city: {city} with interests: {user_interests}.")
     news_block = "\n\n".join(
         f"NOTICIA {i+1}: Titulo: {n['title']}\nDescripcion: {n['description']}"
         for i, n in enumerate(news)
@@ -88,11 +98,15 @@ def select_and_adapt_news(city, news, user_interests):
         {news_block}
 
         """
-
-    response = client.generate(
-        model="gemma3:4b",
-        prompt=prompt
-    )
-    
-
-    return response.response
+    try:
+        response = client.generate(
+            model="gemma3:4b",
+            prompt=prompt
+        )
+        curated_news = response.get("response", "")
+        send_log(datetime.now(), f"Successfully selected and adapted news for city: {city}.")
+        send_log(datetime.now(), f"AI RESPONSE (CURATED NEWS for {city}): {curated_news[:100]}...")
+        return curated_news
+    except Exception as e:
+        send_log(datetime.now(), f"Error selecting and adapting news for city {city}: {e}")
+        return f"Error al seleccionar las noticias para {city}."
