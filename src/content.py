@@ -23,18 +23,27 @@ def podcast_script(city, filtered_news_text, lang="es"):
         The style should be close and natural, as if you were telling a friend about the news.
         Add subtle jokes between news, or even give opinions on the topics.
         It has to be entertaining, with a short introduction mentioning the news headlines.
-
+        Noticias:
+        {filtered_news_text}
         Script structure:
         1. Introduction
         2. News
         3. Conclusion
-
+        Estilo cercano y natural, como radio o nota de voz.
+        Con introducción, desarrollo y cierre.
+        Puedes opinar y hacer bromas sutiles.
         News:
         {filtered_news_text}
-
+        Atencion:
+        Lo tienes que hacer como si lo dices tu en primera persona, tu nombre va a ser Zarteando. Nada de ahora pausa, musica etc. Solo tu como si presentaras tu el podcast.
+        No hagas intervenciones, el podcast es de 1-1. tu hablando al usuario. Nada de música efectos, de sonido etc. Solo el dialogo. No pongas como si fuera un dialogo, solo el texto
+        que hay que leer nada mas. Ejemplo:
+        Soy Zarteando, hoy os presento tal.
+        ahora hablemos de la noticia x de la lista de noticias.
+        Y sigues... No hace falta que pongas nada mas que lo que hay que leer sin nombres, etc.
         Your name is Zarteando. You are the host. Don't mention music or sound effects. Just the dialogue.
         The podcast is 1-on-1, you talking to the user.
-
+        NO MAS DE 2 MINUTOS / 3 MINUTOS POR PODCAST.
         NO MORE THAN 2-3 MINUTES PER PODCAST.
         """
     
@@ -82,21 +91,23 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
     interests_text = ", ".join(user_interests)
 
     base_prompt = f"""
-        Your role is a news editor and podcast host.
-        User profile:
-        - City: {city}
-        - Main interests: {interests_text}
+        Tu rol es de un editor de noticias y presentador de podcast.w
+        Perfil del usuario:
+        - Ciudad {city}
+        - Intereses principales: {interests_text}
+        Antes de generarlo con las noticias de abajo, vas a tener que filtrar entre todas las noticias recibidas, por los gustso del usuario. Atención si no hay nada que coincida, busca cosas
+        medianamente relevantes con el tema. Siempre intenta adaptarte, a los gustos del usuario, si las noticias no "acaparan", intetaremos mostrar otras noticias relevantes aunque no tengan
+        que ver con el tema, pero añadiremos "humor con intereses del usuario", y adaptaras el podcast a las preferencias de este.
 
-        Task:
-        1. Read all the news provided below.
-        2. Filter the news based on the user's interests. If no news matches, select the most relevant ones.
-        3. Adapt the tone and content to the user's preferences. You can add humor related to their interests. DO NOT CHANGE OR INVENT FACTS ABOUT THE NEWS.
-        4. Prioritize quality and relevance, not quantity.
+        Tarea:
+        1. Lees todas las noticias.
+        3. Descarta las que no encajan con sus intereses. (En caso de que no haya, no se descartan)
+        4. Prioriza calidad y relevancia, no cantidad.
+        5. Si una noticia encaja parcialmente, puedes adaptarla al interés del usuario. ATENCION SIN CAMBIAR O INVENTAR DATOS SOBRE LA NOTICIA.
+        Devuelve el resultado como una lista ordenada de noticias seleccionadas,
+        manteniendo título y una breve explicación de por qué es relevante.
 
-        Return the result as an ordered list of selected news,
-        keeping the title and a brief explanation of why it is relevant.
-
-        Available news:
+        Noticias disponibles:
         {news_block}
         """
     

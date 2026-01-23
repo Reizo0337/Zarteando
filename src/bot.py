@@ -69,7 +69,7 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.chat.send_action(action="record_audio")
 
     audio_path = text_to_audio(script)
-    if not audio_.path:
+    if not audio_path:
         send_log(datetime.now(), f"Error generating audio for user {user_id}.")
         await update.message.reply_text(get_translation(user_lang, "error_generating_audio"))
         return
