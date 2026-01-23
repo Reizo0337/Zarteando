@@ -36,7 +36,7 @@ Este bot transforma las noticias de actualidad de cualquier ciudad en un **podca
 
 2. **Instala las dependencias:**
    ```bash
-   pip install python-telegram-bot requests ollama
+   pip install python-telegram-bot requests ollama murf pydub
    ```
 
 3. **Descarga el modelo de IA:**
