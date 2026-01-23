@@ -8,3 +8,8 @@ AVAILABLE_INTERESTS = [
     "ciencia",
     "salud"
 ]
+
+AVAILABLE_LANGS = [
+    "es",
+    "en",
+]

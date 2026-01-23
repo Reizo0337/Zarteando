@@ -62,6 +62,20 @@ def set_users_interests(user_id, interests):
     save_users(users)
     send_log(datetime.now(), f"Interests for user {user_id} updated.")
 
+def set_users_lang(user_id, lang):
+    send_log(datetime.now, f"Setting language for user {user_id}: {lang}")
+    users = load_users()
+    user_id = str(user_id)
+
+    if user_id not in users:
+        send_log(datetime.now(), f"New user {user_id}. Creating profile.")
+        users[user_id] = {}
+
+    users[user_id]["lang"] = lang
+    save_users(users)
+    send_log(datetime.now(), f"Language for user {user_id} updated.")
+
+
 def get_user_profile(user_id):
     """Retrieves the profile for a specific user."""
     send_log(datetime.now(), f"Getting profile for user {user_id}.")

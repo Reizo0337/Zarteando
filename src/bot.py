@@ -5,9 +5,9 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Callb
 from news import get_news
 from content import podcast_script, select_and_adapt_news
 from tts import generate_tts as text_to_audio
-from profile import set_users_interests, get_user_profile
+from profile import set_users_interests, get_user_profile, set_users_lang
 
-from config import AVAILABLE_INTERESTS
+from config import AVAILABLE_INTERESTS, AVAILABLE_LANGS
 from utils import send_log
 
 # /start
@@ -19,6 +19,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/podcast <ciudad> - Crea un podcast de las noticias de tu ciudad.\n"
         "/resumen - Generamos un resumen de las noticias más importantes de hoy. \n"
         "/configure - Configurar el bot. \n"
+        "/language - Cambiar el idioma del bot. \n"
         "/help - Mostrar comandos disponibles. \n"
     )
 
@@ -62,7 +63,7 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.chat.send_action(action="typing")
     await update.message.reply_text("🎙️ Generando guion...")
-
+    
     script = podcast_script(city, curated_news)
     send_log(datetime.now(), f"Generated podcast script for user {user_id}.")
 
@@ -121,6 +122,32 @@ async def resumen(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # configure
 user_temp_selection = {}
 
+async def language(update, context):
+    user_id = update.effective_user.id
+    await update.message.reply_text(
+        "Cambiar el idioma del bot: ",
+        reply_markup = language_keyboard()
+    )
+
+def language_keyboard(selected=None):
+    selected = selected or []
+
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                f"{'✅' if language in language else '⬜'} {language.capitalize()}",
+                callback_data=f"language:{language}"
+            )
+        ]
+        for language in AVAILABLE_LANGS
+    ]
+
+    keyboard.append([
+        InlineKeyboardButton("💾 Guardar", callback_data="save_lang")
+    ])
+
+    return InlineKeyboardMarkup(keyboard)
+
 async def configure(update, context):
     user_id = update.effective_user.id
     user_temp_selection[user_id] = []
@@ -130,6 +157,42 @@ async def configure(update, context):
         "Configura tus intereses: ",
         reply_markup = interests_keyboard()
     )
+
+async def laguage_callback(update, context):
+    query = update.callback_query
+    user_id = query.from_user.id
+    await query.answer()
+
+    if user_id not in user_temp_selection:
+        user_temp_selection[user_id] = []
+    
+    data = query.data
+    send_log(datetime.now(), f"USer {user_id} sent callback data: {data}")
+
+    if data.startswith("language:"):
+        language = data.split(":")[1]
+        selected = user_temp_selection[user_id]
+
+        if language in selected:
+            selected.remove(language)
+        else:
+            selected.append(language)
+        
+        send_log(datetime.now(), f"User {user_id} temporary languages: {selected}.")
+
+        await query.edit_message_reply_markup(
+            reply_markup = language_keyboard(selected)
+        )
+    elif data == "save_lang":
+        set_users_lang(user_id, user_temp_selection[user_id])
+        send_log(datetime.now(), f"User {user_id} saved languages: {user_temp_selection[user_id]}.")
+
+        await query.edit_message_text(
+            f"✅ Idiomas guardados:\n\n"
+            + ", ".join(user_temp_selection[user_id])
+        )
+
+        del user_temp_selection[user_id]
 
 async def interests_callback(update, context):
     query = update.callback_query
@@ -193,11 +256,17 @@ app = ApplicationBuilder().token("8328525433:AAEoUO1Eqb9X0zD58SCTvuOH4eflT-8Cg_M
 app.add_handler(CommandHandler("help", help))
 app.add_handler(CommandHandler("podcast", podcast))
 app.add_handler(CommandHandler("resumen", resumen))
+app.add_handler(CommandHandler("language", language))
 app.add_handler(CommandHandler("configure", configure))
 
 app.add_handler(
     CallbackQueryHandler(interests_callback)
 )
+
+app.add_handler(
+    CallbackQueryHandler(laguage_callback)
+)
+
 
 send_log(datetime.now(), "Bot started.")
 app.run_polling()
