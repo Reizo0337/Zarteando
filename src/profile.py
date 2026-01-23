@@ -86,3 +86,10 @@ def get_user_profile(user_id):
     else:
         send_log(datetime.now(), f"No profile found for user {user_id}.")
     return profile
+
+def get_user_lang(user_id):
+    """Retrieves the language for a specific user, with a default."""
+    profile = get_user_profile(user_id)
+    if profile and "lang" in profile:
+        return profile["lang"]
+    return "es"  # Default language
