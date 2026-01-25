@@ -19,6 +19,37 @@ if (file_exists($users_file)) {
     }
 }
 
+// Get statistics
+$easy_commands = 0;
+$podcast_generations = 0;
+$summary_generations = 0;
+
+if (file_exists($logs_file)) {
+    $logs_content = file_get_contents($logs_file);
+    $log_entries = explode("\n", $logs_content);
+    $one_month_ago = strtotime('-1 month');
+
+    foreach ($log_entries as $entry) {
+        if (trim($entry) === '') {
+            continue;
+        }
+
+        preg_match('/\[(.*?)\]/', $entry, $matches);
+        if (isset($matches[1])) {
+            $log_date = strtotime($matches[1]);
+            if ($log_date >= $one_month_ago) {
+                if (strpos($entry, 'requested help') !== false) {
+                    $easy_commands++;
+                } elseif (strpos($entry, 'Generated podcast script') !== false || strpos($entry, 'Generated audio') !== false) {
+                    $podcast_generations++;
+                } elseif (strpos($entry, 'Sent daily summary') !== false || strpos($entry, 'requested a summary') !== false) {
+                    $summary_generations++;
+                }
+            }
+        }
+    }
+}
+
 // Get logs
 $logs = '';
 if (file_exists($logs_file)) {
@@ -86,6 +117,13 @@ if (isset($_POST['send_message']) && !empty($_POST['message'])) {
         <div class="card">
             <h2>Statistics</h2>
             <p><strong>Total Users:</strong> <?php echo $user_count; ?></p>
+        </div>
+
+        <div class="card">
+            <h2>Monthly Statistics</h2>
+            <p><strong>Easy Commands:</strong> <?php echo $easy_commands; ?></p>
+            <p><strong>Podcast Generations:</strong> <?php echo $podcast_generations; ?></p>
+            <p><strong>Summary Generations:</strong> <?php echo $summary_generations; ?></p>
         </div>
 
         <div class="card">
