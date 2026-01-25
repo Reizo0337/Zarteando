@@ -6,7 +6,8 @@ AVAILABLE_INTERESTS = [
     "cultura",
     "sociedad",
     "ciencia",
-    "salud"
+    "salud",
+    "ci"
 ]
 
 AVAILABLE_LANGS = [

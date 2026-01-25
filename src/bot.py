@@ -1,4 +1,6 @@
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 
@@ -229,7 +231,12 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             del user_temp_selection[user_id]
 
 
-app = ApplicationBuilder().token("8328525433:AAEoUO1Eqb9X0zD58SCTvuOH4eflT-8Cg_M").build()
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+app = ApplicationBuilder().token(os.getenv("TELEGRAM_BOT_TOKEN")).build()
 
 app.add_handler(CommandHandler("help", help_command))
 app.add_handler(CommandHandler("podcast", podcast))

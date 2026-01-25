@@ -29,6 +29,7 @@ def podcast_script(city, filtered_news_text, lang="es"):
         1. Introduction
         2. News
         3. Conclusion
+        
         Estilo cercano y natural, como radio o nota de voz.
         Con introducción, desarrollo y cierre.
         Puedes opinar y hacer bromas sutiles.
@@ -45,6 +46,7 @@ def podcast_script(city, filtered_news_text, lang="es"):
         The podcast is 1-on-1, you talking to the user.
         NO MAS DE 2 MINUTOS / 3 MINUTOS POR PODCAST.
         NO MORE THAN 2-3 MINUTES PER PODCAST.
+        6. MAXIMO DE 3000 CARACTERES
         """
     
     prompt = translate_prompt(base_prompt, lang)
@@ -106,6 +108,7 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
         5. Si una noticia encaja parcialmente, puedes adaptarla al interés del usuario. ATENCION SIN CAMBIAR O INVENTAR DATOS SOBRE LA NOTICIA.
         Devuelve el resultado como una lista ordenada de noticias seleccionadas,
         manteniendo título y una breve explicación de por qué es relevante.
+        6. MAXIMO DE 3000 CARACTERES
 
         Noticias disponibles:
         {news_block}
