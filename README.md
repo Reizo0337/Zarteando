@@ -18,6 +18,7 @@ We live in an age of information overload. Scrolling through dozens of news site
 - **🧠 Intelligent Scriptwriting**: Powered by **Generative AI** (Ollama + Gemma 3), the bot doesn't just read text; it writes a fun, first-person radio script summarizing the events.
 - **🗣️ Ultra-Realistic Narration**: Utilizes the **Murf API** to generate high-fidelity voice audio that sounds like a real human presenter.
 - **📱 Seamless Telegram Integration**: Everything happens inside your chat. No external apps required.
+- **🖥️ Admin Panel**: Includes a PHP-based web dashboard for managing the bot and viewing statistics.
 
 ---
 
@@ -33,6 +34,7 @@ This project leverages a modern stack of Python and AI technologies to deliver i
 | **Script Gen** | `Ollama` (Gemma 3:4b) | A local LLM server used to generate the creative script, ensuring privacy and cost-efficiency for text generation. |
 | **Audio Engine** | `Murf API` | State-of-the-art Text-to-Speech (TTS) engine for lifelike audio. |
 | **Audio Proc** | `pydub` | Used for audio file manipulation if necessary. |
+| **Admin UI** | `PHP` (Composer) | Web interface for administration and monitoring. |
 
 ---
 
@@ -46,6 +48,7 @@ This project leverages a modern stack of Python and AI technologies to deliver i
     *   Telegram Bot (@BotFather)
     *   GNews
     *   MURFApi
+4.  **PHP & Composer** (for the Admin Panel).
 
 ### Step-by-Step Guide
 
@@ -67,7 +70,14 @@ This project leverages a modern stack of Python and AI technologies to deliver i
     ollama pull gemma3:4b
     ```
 
-4.  **Configuration**
+4.  **Setup Admin Panel**
+    Navigate to the `admin_panel` directory and install PHP dependencies:
+    ```bash
+    cd admin_panel
+    composer install
+    ```
+
+5.  **Configuration**
     Currently, keys are set in the source files (Environment variables recommended for production).
     *   **Telegram Token**: Edit `src/bot.py`
     *   **GNews Key**: Edit `src/news.py`
