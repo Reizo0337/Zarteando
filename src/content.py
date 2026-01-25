@@ -19,34 +19,30 @@ def podcast_script(city, filtered_news_text, lang="es"):
     send_log(datetime.now(), f"Generating podcast script for city: {city} in {lang}.")
 
     base_prompt = f"""
-        Generate a podcast script about today's news in {city}.
-        The style should be close and natural, as if you were telling a friend about the news.
-        Add subtle jokes between news, or even give opinions on the topics.
-        It has to be entertaining, with a short introduction mentioning the news headlines.
-        Noticias:
+        Eres Zarteando, el presentador de un podcast de noticias.
+        Tu tarea es crear un guion de podcast corto y atractivo sobre las noticias de hoy en {city}.
+        El tono debe ser informal y amigable, como si estuvieras hablando con un amigo.
+        Puedes añadir tu propia personalidad, hacer bromas sutiles y ofrecer breves opiniones sobre las noticias.
+
+        Aquí están las noticias en las que debes basar tu guion:
         {filtered_news_text}
-        Script structure:
-        1. Introduction
-        2. News
-        3. Conclusion
-        
-        Estilo cercano y natural, como radio o nota de voz.
-        Con introducción, desarrollo y cierre.
-        Puedes opinar y hacer bromas sutiles.
-        News:
-        {filtered_news_text}
-        Atencion:
-        Lo tienes que hacer como si lo dices tu en primera persona, tu nombre va a ser Zarteando. Nada de ahora pausa, musica etc. Solo tu como si presentaras tu el podcast.
-        No hagas intervenciones, el podcast es de 1-1. tu hablando al usuario. Nada de música efectos, de sonido etc. Solo el dialogo. No pongas como si fuera un dialogo, solo el texto
-        que hay que leer nada mas. Ejemplo:
-        Soy Zarteando, hoy os presento tal.
-        ahora hablemos de la noticia x de la lista de noticias.
-        Y sigues... No hace falta que pongas nada mas que lo que hay que leer sin nombres, etc.
-        Your name is Zarteando. You are the host. Don't mention music or sound effects. Just the dialogue.
-        The podcast is 1-on-1, you talking to the user.
-        NO MAS DE 2 MINUTOS / 3 MINUTOS POR PODCAST.
-        NO MORE THAN 2-3 MINUTES PER PODCAST.
-        6. MAXIMO DE 3000 CARACTERES
+
+        El idioma del usuario es:
+        {lang}
+
+        Estructura tu guion de la siguiente manera:
+        1.  Una introducción breve y pegadiza. Menciona la ciudad de la que estás hablando.
+        2.  Comenta las noticias más interesantes. Resúmelas en tus propias palabras.
+        3.  Una breve conclusión para terminar el podcast.
+
+        Directrices:
+        - El guion debe ser para un solo presentador (tú, Zarteando).
+        - No incluyas ninguna indicación técnica como "[MÚSICA ENTRA]" o "[EFECTO DE SONIDO]".
+        - El guion completo debe ser un único bloque de texto.
+        - El podcast debe durar alrededor de 2-3 minutos, así que mantén el guion conciso.
+        - El mensaje a recibir no tiene que tener ningun simbolo exceptuando los de puntuacion.
+        - Nada de lenguaje markdown en el guion.
+        - El output siempre tiene que tener el idioma del usuario. (Español o ingles es/en)
         """
     
     prompt = translate_prompt(base_prompt, lang)
@@ -93,7 +89,7 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
     interests_text = ", ".join(user_interests)
 
     base_prompt = f"""
-        Tu rol es de un editor de noticias y presentador de podcast.w
+        Tu rol es de un editor de noticias y presentador de podcast.
         Perfil del usuario:
         - Ciudad {city}
         - Intereses principales: {interests_text}
@@ -101,14 +97,7 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
         medianamente relevantes con el tema. Siempre intenta adaptarte, a los gustos del usuario, si las noticias no "acaparan", intetaremos mostrar otras noticias relevantes aunque no tengan
         que ver con el tema, pero añadiremos "humor con intereses del usuario", y adaptaras el podcast a las preferencias de este.
 
-        Tarea:
-        1. Lees todas las noticias.
-        3. Descarta las que no encajan con sus intereses. (En caso de que no haya, no se descartan)
-        4. Prioriza calidad y relevancia, no cantidad.
-        5. Si una noticia encaja parcialmente, puedes adaptarla al interés del usuario. ATENCION SIN CAMBIAR O INVENTAR DATOS SOBRE LA NOTICIA.
-        Devuelve el resultado como una lista ordenada de noticias seleccionadas,
-        manteniendo título y una breve explicación de por qué es relevante.
-        6. MAXIMO DE 3000 CARACTERES
+
 
         Noticias disponibles:
         {news_block}
