@@ -5,3 +5,4 @@
 *.ogg
 __pycache__
 data/*
+vendor
