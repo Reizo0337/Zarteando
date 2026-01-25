@@ -1,8 +1,14 @@
 import requests
+import os
+
+from dotenv import load_dotenv
 from datetime import datetime
 from utils import send_log
 
-API_KEY = "85d6761cdd6db8b5f3dab3a18c3ef144"
+
+load_dotenv()
+API_KEY = os.getenv("GNEWS_API_KEY")
+
 
 def get_news(city):
     send_log(datetime.now(), f"Fetching news for city: {city}.")

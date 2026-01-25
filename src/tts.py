@@ -4,8 +4,11 @@ from datetime import datetime
 from utils import send_log
 from murf import Murf
 import os
+from dotenv import load_dotenv
 
-MURF_KEY = "ap2_775d511d-658b-4408-b99e-e3310407d516"
+load_dotenv()
+
+MURF_KEY = os.getenv("MURF_API_KEY")
 
 client = Murf(
     api_key=MURF_KEY,
