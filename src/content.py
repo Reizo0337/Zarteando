@@ -116,3 +116,43 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
     except Exception as e:
         send_log(datetime.now(), f"Error selecting and adapting news for city {city} in {lang}: {e}")
         return get_translation(lang, "error_selecting_news", city=city)
+
+def daily_news_script(city, filtered_news_text, lang="es"):
+    send_log(datetime.now(), f"Generating daily news script for city: {city} in {lang}.")
+
+    base_prompt = f"""
+        Eres Zarteando, el presentador de tu resumen diario de noticias.
+        Tu tarea es crear un guion breve y directo para el podcast diario programado sobre las noticias de hoy en {city}.
+        El tono debe ser informativo pero cercano, ideal para alguien que escucha esto todos los días a la misma hora.
+
+        Aquí están las noticias del día:
+        {filtered_news_text}
+
+        El idioma del usuario es:
+        {lang}
+
+        Estructura:
+        1.  Saludo rápido ("Hola, aquí tienes tu dosis diaria de noticias para {city}...").
+        2.  Resumen ágil de los puntos clave.
+        3.  Despedida rápida hasta mañana.
+
+        Directrices:
+        - Sin indicaciones técnicas.
+        - Un solo bloque de texto.
+        - Duración: 1-2 minutos (más conciso que el podcast normal).
+        - Output en el idioma del usuario.
+        """
+    
+    prompt = translate_prompt(base_prompt, lang)
+
+    try:
+        response = client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+        )
+        script = response.get("response", "")
+        send_log(datetime.now(), f"Successfully generated daily news script for city: {city} in {lang}.")
+        return script
+    except Exception as e:
+        send_log(datetime.now(), f"Error generating daily news script for city {city} in {lang}: {e}")
+        return get_translation(lang, "error_generating_script", city=city)

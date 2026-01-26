@@ -5,11 +5,18 @@ TRANSLATIONS = {
         "help_message": "Comandos disponibles: \n"
                         "/podcast <ciudad> - Crea un podcast de las noticias de tu ciudad.\n"
                         "/resumen - Generamos un resumen de las noticias más importantes de hoy. \n"
+                        "/dailynews <ciudad> <hora> - Programar un podcast diario. \n"
+                        "/stopdailynews <ciudad> - Desactivar un podcast diario. \n"
                         "/configure - Configurar el bot. \n"
                         "/language - Cambiar el idioma del bot. \n"
                         "/help - Mostrar comandos disponibles. \n",
         "podcast_usage": "Usa: /podcast <ciudad>",
         "summary_usage": "Usa: /resumen <ciudad>",
+        "dailynews_usage": "Usa: /dailynews <ciudad> <hora>",
+        "dailynews_scheduled": "✅ Podcast programado para {city} a las {time} diariamente.",
+        "stopdailynews_usage": "Usa: /stopdailynews <ciudad>",
+        "stopdailynews_success": "✅ Podcast diario para {city} desactivado.",
+        "stopdailynews_not_found": "❌ No se encontró ningún podcast programado para {city}.",
         "searching_news": "📰 Buscando noticias...",
         "no_news_found": "❌ No se encontraron noticias.",
         "selecting_news": "🧠 Seleccionando noticias para ti...",
@@ -30,11 +37,18 @@ TRANSLATIONS = {
         "help_message": "Available commands: \n"
                         "/podcast <city> - Create a podcast of the news in your city.\n"
                         "/summary - We generate a summary of today's most important news. \n"
+                        "/dailynews <city> <time> - Schedule a daily podcast. \n"
+                        "/stopdailynews <city> - Stop a daily podcast. \n"
                         "/configure - Configure the bot. \n"
                         "/language - Change the bot's language. \n"
                         "/help - Show available commands. \n",
         "podcast_usage": "Usage: /podcast <city>",
         "summary_usage": "Usage: /summary <city>",
+        "dailynews_usage": "Usage: /dailynews <city> <time>",
+        "dailynews_scheduled": "✅ Daily podcast scheduled for {city} at {time}.",
+        "stopdailynews_usage": "Usage: /stopdailynews <city>",
+        "stopdailynews_success": "✅ Daily podcast for {city} deactivated.",
+        "stopdailynews_not_found": "❌ No scheduled podcast found for {city}.",
         "searching_news": "📰 Searching for news...",
         "no_news_found": "❌ No news found.",
         "selecting_news": "🧠 Selecting news for you...",

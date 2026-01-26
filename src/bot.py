@@ -1,11 +1,13 @@
 from datetime import datetime
 import os
+import asyncio
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 
 from news import get_news
-from content import podcast_script, select_and_adapt_news, daily_summary
+from content import podcast_script, select_and_adapt_news, daily_summary, daily_news_script
+from scheduler import scheduler_manager, handle_dailynews_logic
 from tts import generate_tts as text_to_audio
 from profile import set_users_interests, get_user_profile, set_users_lang, get_user_lang
 from config import AVAILABLE_INTERESTS, AVAILABLE_LANGS
@@ -116,6 +118,79 @@ async def resumen(update: Update, context: ContextTypes.DEFAULT_TYPE):
     summary = daily_summary(city, curated_news, lang=user_lang)
     await update.message.reply_text(summary)
     send_log(datetime.now(), f"Sent daily summary to user {user_id}.")
+
+# /dailynews <city> <time>
+bot_loop = None
+
+async def execute_daily_news(chat_id, city):
+    user_lang = get_user_lang(chat_id)
+    send_log(datetime.now(), f"Executing daily news for {chat_id} in {city} ({user_lang}).")
+    
+    news = get_news(city)
+    if not news:
+        send_log(datetime.now(), f"No news found for daily podcast in {city}.")
+        return
+
+    profile = get_user_profile(chat_id)
+    user_preferences = profile.get("interests", []) if profile else []
+    
+    curated_news = select_and_adapt_news(
+        city=city,
+        news=news,
+        user_interests=user_preferences,
+        lang=user_lang
+    )
+    
+    script = daily_news_script(city, curated_news, lang=user_lang)
+    audio_path = text_to_audio(script)
+    
+    if audio_path:
+        with open(audio_path, "rb") as audio:
+            await app.bot.send_voice(
+                chat_id=chat_id,
+                voice=audio,
+                caption=get_translation(user_lang, "podcast_caption", city=city)
+            )
+        send_log(datetime.now(), f"Sent daily podcast to {chat_id}.")
+    else:
+        send_log(datetime.now(), f"Failed to generate audio for daily podcast {chat_id}.")
+
+def trigger_daily_news(chat_id, city):
+    if bot_loop:
+        asyncio.run_coroutine_threadsafe(execute_daily_news(chat_id, city), bot_loop)
+
+async def dailynews(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    user_lang = get_user_lang(user_id)
+    
+    if not context.args:
+        await update.message.reply_text(get_translation(user_lang, "dailynews_usage"))
+        return
+
+    success, city, time_str = handle_dailynews_logic(user_id, context.args, trigger_daily_news)
+    
+    if success:
+        await update.message.reply_text(
+            get_translation(user_lang, "dailynews_scheduled", city=city, time=time_str)
+        )
+    else:
+        await update.message.reply_text(get_translation(user_lang, "dailynews_usage"))
+
+async def stopdailynews(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    user_lang = get_user_lang(user_id)
+    
+    if not context.args:
+        await update.message.reply_text(get_translation(user_lang, "stopdailynews_usage"))
+        return
+
+    city = " ".join(context.args)
+    success = scheduler_manager.remove_daily_job(user_id, city)
+    
+    if success:
+        await update.message.reply_text(get_translation(user_lang, "stopdailynews_success", city=city))
+    else:
+        await update.message.reply_text(get_translation(user_lang, "stopdailynews_not_found", city=city))
 
 # /language
 async def language_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -230,17 +305,24 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if user_id in user_temp_selection:
             del user_temp_selection[user_id]
 
+async def post_init(application):
+    global bot_loop
+    bot_loop = asyncio.get_running_loop()
+    scheduler_manager.load_jobs(trigger_daily_news)
+    scheduler_manager.start()
 
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-app = ApplicationBuilder().token(os.getenv("TELEGRAM_BOT_TOKEN")).build()
+app = ApplicationBuilder().token(os.getenv("TELEGRAM_BOT_TOKEN")).post_init(post_init).build()
 
 app.add_handler(CommandHandler("help", help_command))
 app.add_handler(CommandHandler("podcast", podcast))
 app.add_handler(CommandHandler("resumen", resumen))
+app.add_handler(CommandHandler("dailynews", dailynews))
+app.add_handler(CommandHandler("stopdailynews", stopdailynews))
 app.add_handler(CommandHandler("language", language_command))
 app.add_handler(CommandHandler("configure", configure))
 app.add_handler(CallbackQueryHandler(callback_handler))
