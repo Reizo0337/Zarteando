@@ -27,7 +27,7 @@ TRANSLATIONS = {
         "interests_config": "Configura tus intereses: ",
         "interests_saved": "✅ Intereses guardados:\n\n",
         "language_config": "Cambiar el idioma del bot: ",
-        "language_saved": "Language set to {language_name}",
+        "language_saved": "Idioma cambiado a {language_name}",
         "save": "💾 Guardar",
         "error_generating_script": "Error al generar el guion para {city}.",
         "error_selecting_news": "Error al seleccionar las noticias para {city}.",
