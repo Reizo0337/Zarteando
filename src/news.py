@@ -11,12 +11,12 @@ load_dotenv()
 API_KEY = os.getenv("GNEWS_API_KEY")
 
 
-def _get_news_sync(city):
+def _get_news_sync(city, lang="es"):
     send_log(datetime.now(), f"Fetching news for city: {city}.")
     url = "https://gnews.io/api/v4/search"
     params = {
         "q": city,
-        "lang": "es",
+        "lang": lang,
         "token": API_KEY
     }
     try:
@@ -47,6 +47,6 @@ def _get_news_sync(city):
         send_log(datetime.now(), f"An unexpected error occurred while fetching news for {city}: {e}")
         return []
 
-async def get_news(city):
+async def get_news(city, lang="es"):
     loop = asyncio.get_running_loop()
-    return await loop.run_in_executor(None, _get_news_sync, city)
+    return await loop.run_in_executor(None, _get_news_sync, city, lang)

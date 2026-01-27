@@ -15,14 +15,19 @@ client = Murf(
     api_key=MURF_KEY,
 )
 
-def _generate_tts_sync(script, output_path="output.ogg"):
+def _generate_tts_sync(script, lang="es", output_path="output.ogg"):
     send_log(datetime.now(), "Generating audio from script.")
 
     try:
+        # Select voice based on language
+        voice_id = "es-ES-Javier"
+        if lang == "en":
+            voice_id = "en-US-Carter"
+
         # Generar audio en Murf (pidiendo OGG directamente)
         response = client.text_to_speech.generate(
             text=script,
-            voice_id="es-ES-Javier",
+            voice_id=voice_id,
             format="OGG"  # 🔥 así evitas convertir después
         )
 
@@ -47,6 +52,6 @@ def _generate_tts_sync(script, output_path="output.ogg"):
         send_log(datetime.now(), f"Error generating audio: {e}")
         return None
 
-async def generate_tts(script, output_path="output.ogg"):
+async def generate_tts(script, lang="es", output_path="output.ogg"):
     loop = asyncio.get_running_loop()
-    return await loop.run_in_executor(None, _generate_tts_sync, script, output_path)
+    return await loop.run_in_executor(None, _generate_tts_sync, script, lang, output_path)

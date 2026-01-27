@@ -42,7 +42,7 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.chat.send_action(action="typing")
     await update.message.reply_text(get_translation(user_lang, "searching_news"))
 
-    news = await get_news(city)
+    news = await get_news(city, lang=user_lang)
     if not news:
         send_log(datetime.now(), f"No news found for city: {city}.")
         await update.message.reply_text(get_translation(user_lang, "no_news_found"))
@@ -73,7 +73,7 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.chat.send_action(action="record_audio")
 
-    audio_path = await text_to_audio(script)
+    audio_path = await text_to_audio(script, lang=user_lang)
     if not audio_path:
         send_log(datetime.now(), f"Error generating audio for user {user_id}.")
         await update.message.reply_text(get_translation(user_lang, "error_generating_audio"))
@@ -102,7 +102,7 @@ async def resumen(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.chat.send_action(action="typing")
     await update.message.reply_text(get_translation(user_lang, "selecting_news"))
-    news = await get_news(city)
+    news = await get_news(city, lang=user_lang)
 
     profile = get_user_profile(user_id)
     user_preferences = profile.get("interests", []) if profile else []
@@ -127,7 +127,7 @@ async def execute_daily_news(chat_id, city):
     user_lang = get_user_lang(chat_id)
     send_log(datetime.now(), f"Executing daily news for {chat_id} in {city} ({user_lang}).")
     
-    news = await get_news(city)
+    news = await get_news(city, lang=user_lang)
     if not news:
         send_log(datetime.now(), f"No news found for daily podcast in {city}.")
         return
@@ -143,7 +143,7 @@ async def execute_daily_news(chat_id, city):
     )
     
     script = await daily_news_script(city, curated_news, lang=user_lang)
-    audio_path = await text_to_audio(script)
+    audio_path = await text_to_audio(script, lang=user_lang)
     
     if audio_path:
         with open(audio_path, "rb") as audio:
