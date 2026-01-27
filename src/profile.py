@@ -9,7 +9,6 @@ DATA_DIR = "data"
 DATA_FILE = Path(DATA_DIR) / "user_preferences.json"
 
 def ensure_storage():
-    """Ensures that the data directory and file exist."""
     try:
         if not os.path.exists(DATA_DIR):
             send_log(datetime.now(), f"Data directory not found. Creating '{DATA_DIR}'.")
@@ -24,7 +23,6 @@ def ensure_storage():
 
 
 def load_users():
-    """Loads all user profiles from the JSON file."""
     ensure_storage()
     try:
         if DATA_FILE.exists():
@@ -38,7 +36,6 @@ def load_users():
         return {}
 
 def save_users(data):
-    """Saves all user profiles to the JSON file."""
     ensure_storage()
     try:
         send_log(datetime.now(), "Saving user profiles.")
@@ -49,7 +46,6 @@ def save_users(data):
 
 
 def set_users_interests(user_id, interests):
-    """Sets the interests for a specific user."""
     send_log(datetime.now(), f"Setting interests for user {user_id}: {interests}")
     users = load_users()
     user_id = str(user_id)
@@ -77,7 +73,6 @@ def set_users_lang(user_id, lang):
 
 
 def get_user_profile(user_id):
-    """Retrieves the profile for a specific user."""
     send_log(datetime.now(), f"Getting profile for user {user_id}.")
     users = load_users()
     profile = users.get(str(user_id))
@@ -88,7 +83,6 @@ def get_user_profile(user_id):
     return profile
 
 def get_user_lang(user_id):
-    """Retrieves the language for a specific user, with a default."""
     profile = get_user_profile(user_id)
     if profile and "lang" in profile:
         return profile["lang"]

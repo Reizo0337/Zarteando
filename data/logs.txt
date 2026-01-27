@@ -496,3 +496,151 @@
 [2026-01-27 19:29:13.040544] Audio generated at output.ogg
 [2026-01-27 19:29:13.042459] Generated audio at output.ogg for user 1331489813.
 [2026-01-27 19:29:17.336726] Sent podcast to user 1331489813.
+[2026-01-27 23:48:06.597175] Fetching news for city: Technology.
+[2026-01-27 23:48:07.593607] Found 10 articles for city: Technology.
+[2026-01-27 23:48:07.594227] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 23:48:07.594614] TOTAL RESULTS for Technology: 10
+[2026-01-27 23:48:07.596304] Generating audio from script.
+[2026-01-27 23:48:10.766043] Audio generated at output.ogg
+[2026-01-27 23:48:10.768715] Bot started.
+[2026-01-27 23:48:22.055276] Getting profile for user 1331489813.
+[2026-01-27 23:48:22.055878] Loading user profiles.
+[2026-01-27 23:48:22.056435] Profile found for user 1331489813.
+[2026-01-27 23:48:22.056791] User 1331489813 requested a podcast in es.
+[2026-01-27 23:48:22.057118] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 23:48:22.258500] Fetching news for city: Zaragoza.
+[2026-01-27 23:48:22.930009] Found 10 articles for city: Zaragoza.
+[2026-01-27 23:48:22.930537] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 23:48:22.930817] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 23:48:22.932245] Found 10 news articles for city: Zaragoza.
+[2026-01-27 23:48:22.932587] Getting profile for user 1331489813.
+[2026-01-27 23:48:22.932915] Loading user profiles.
+[2026-01-27 23:48:22.933329] Profile found for user 1331489813.
+[2026-01-27 23:48:22.933611] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 23:48:23.050956] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 23:48:51.542449] Successfully selected and adapted news for city: Zaragoza in es.
+[2026-01-27 23:48:51.543021] Curated news: Noticia 1: Endesa, tu casa’, el nuevo concepto de atención comercial de la compañía, llega a la capital aragonesa, Endesa ha inaugurado una nueva tienda en Zaragoza situada en la calle Manuel Serrano Sanz, número 3, en...
+Noticia 2: Bell-Haynes (Zaragoza) estará de baja entre 4 y 6 meses por una intervención en la mano, El base canadiense del Casademont Zaragoza Trae Bell-Haynes pasará por el quirófano en los...
+Noticia 3: Policía Nacional arresta a un hombre por estafar a una pareja con la compra de una bici eléctrica en Zaragoza, Agentes de la Policía Nacional han detenido a un hombre en Zaragoza como presunto autor de un delito de...
+Noticia 4: Puerto Venecia celebra San Valero con roscón y pasacalles de Cabezudos, Puerto Venecia comienza este miércoles, 28 de enero, con la celebración de San Valero, patrón de Zaragoza,...
+Noticia 5: Entre el esplendor del siglo XIX y la piqueta de 1970: el Castillo Palomar y su legado en Zaragoza, Construido a finales del XIX por la familia Palomar, este palacio simbolizó el auge de la burguesía zaragozana: demolido en 1970, hoy su memoria perdura en el Parque Castillo Palomar
+Noticia 7: La mejor versión de Rubén Sellés en el Real Zaragoza y el aquí, ahora y ya con Agada y Rober González, Tras los dos empates en casa ante la Real B y el Castellón, el técnico tendrá que volver a repensarse. A los refuerzos los necesitará bien de inmediato
+Noticia 10: Potente, rápido, rematador y carismático: así juega William Agada, nuevo fichaje del Real Zaragoza, El nuevo delantero blanquillo va bien de cabeza pese a su altura y destaca por su colocación y velocidad al espacio
+
+[2026-01-27 23:48:51.543360] Curated news for user 1331489813, Noticia 1: Endesa, tu casa’, el nuevo concepto de atención comercial de la compañía, llega a la capital aragonesa, Endesa ha inaugurado una nueva tienda en Zaragoza situada en la calle Manuel Serrano Sanz, número 3, en...
+Noticia 2: Bell-Haynes (Zaragoza) estará de baja entre 4 y 6 meses por una intervención en la mano, El base canadiense del Casademont Zaragoza Trae Bell-Haynes pasará por el quirófano en los...
+Noticia 3: Policía Nacional arresta a un hombre por estafar a una pareja con la compra de una bici eléctrica en Zaragoza, Agentes de la Policía Nacional han detenido a un hombre en Zaragoza como presunto autor de un delito de...
+Noticia 4: Puerto Venecia celebra San Valero con roscón y pasacalles de Cabezudos, Puerto Venecia comienza este miércoles, 28 de enero, con la celebración de San Valero, patrón de Zaragoza,...
+Noticia 5: Entre el esplendor del siglo XIX y la piqueta de 1970: el Castillo Palomar y su legado en Zaragoza, Construido a finales del XIX por la familia Palomar, este palacio simbolizó el auge de la burguesía zaragozana: demolido en 1970, hoy su memoria perdura en el Parque Castillo Palomar
+Noticia 7: La mejor versión de Rubén Sellés en el Real Zaragoza y el aquí, ahora y ya con Agada y Rober González, Tras los dos empates en casa ante la Real B y el Castellón, el técnico tendrá que volver a repensarse. A los refuerzos los necesitará bien de inmediato
+Noticia 10: Potente, rápido, rematador y carismático: así juega William Agada, nuevo fichaje del Real Zaragoza, El nuevo delantero blanquillo va bien de cabeza pese a su altura y destaca por su colocación y velocidad al espacio
+.
+[2026-01-27 23:48:51.726945] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 23:49:15.263071] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-27 23:49:15.263622] Generated podcast script for user 1331489813.
+[2026-01-27 23:49:15.411757] Generating audio from script.
+[2026-01-27 23:49:22.962369] Audio generated at output.ogg
+[2026-01-27 23:49:22.964274] Generated audio at output.ogg for user 1331489813.
+[2026-01-27 23:49:23.700597] Sent podcast to user 1331489813.
+[2026-01-28 00:21:22.778433] Fetching news for city: Technology.
+[2026-01-28 00:21:23.678944] Found 10 articles for city: Technology.
+[2026-01-28 00:21:23.679538] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-28 00:21:23.679951] TOTAL RESULTS for Technology: 10
+[2026-01-28 00:21:23.681852] Generating audio from script.
+[2026-01-28 00:21:26.729767] Audio generated at output.ogg
+[2026-01-28 00:21:26.732739] Bot started.
+[2026-01-28 00:21:34.982840] Getting profile for user 1331489813.
+[2026-01-28 00:21:34.983402] Loading user profiles.
+[2026-01-28 00:21:34.983850] Profile found for user 1331489813.
+[2026-01-28 00:21:34.984129] User 1331489813 requested help in es.
+[2026-01-28 00:21:38.468679] Getting profile for user 1331489813.
+[2026-01-28 00:21:38.469261] Loading user profiles.
+[2026-01-28 00:21:38.469691] Profile found for user 1331489813.
+[2026-01-28 00:21:38.469999] User 1331489813 requested a podcast in es.
+[2026-01-28 00:21:38.470283] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-28 00:21:38.581153] Fetching news for city: Zaragoza.
+[2026-01-28 00:21:39.253176] Found 10 articles for city: Zaragoza.
+[2026-01-28 00:21:39.253663] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-28 00:21:39.253968] TOTAL RESULTS for Zaragoza: 10
+[2026-01-28 00:21:39.255346] Found 10 news articles for city: Zaragoza.
+[2026-01-28 00:21:39.255704] Getting profile for user 1331489813.
+[2026-01-28 00:21:39.256014] Loading user profiles.
+[2026-01-28 00:21:39.256407] Profile found for user 1331489813.
+[2026-01-28 00:21:39.256678] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-28 00:21:39.367967] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-28 00:21:40.261204] OpenRouter API failed: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemma-2-9b-it:free.', 'code': 404}, 'user_id': 'user_38ATusjHGznqscH1nEtfJIT7FOT'}. Falling back to Ollama.
+[2026-01-28 00:22:08.719900] Successfully selected and adapted news for city: Zaragoza in es.
+[2026-01-28 00:22:08.720410] Curated news: Noticia 1: Endesa, tu casa’, el nuevo concepto de atención comercial de la compañía, llega a la capital aragonesa, Endesa ha inaugurado una nueva tienda en Zaragoza situada en la calle Manuel Serrano Sanz, número 3, en...
+Noticia 2: Bell-Haynes (Zaragoza) estará de baja entre 4 y 6 meses por una intervención en la mano, El base canadiense del Casademont Zaragoza Trae Bell-Haynes pasará por el quirófano en los...
+Noticia 3: Policía Nacional arresta a un hombre por estafar a una pareja con la compra de una bici eléctrica en Zaragoza, Agentes de la Policía Nacional han detenido a un hombre en Zaragoza como presunto autor de un delito de...
+Noticia 4: Puerto Venecia celebra San Valero con roscón y pasacalles de Cabezudos, Puerto Venecia comienza este miércoles, 28 de enero, con la celebración de San Valero, patrón de Zaragoza,...
+Noticia 5: Entre el esplendor del siglo XIX y la piqueta de 1970: el Castillo Palomar y su legado en Zaragoza, Construido a finales del XIX por la familia Palomar, este palacio simbolizó el auge de la burguesía zaragozana: demolido en 1970, hoy su memoria perdura en el Parque Castillo Palomar
+Noticia 7: La mejor versión de Rubén Sellés en el Real Zaragoza y el aquí, ahora y ya con Agada y Rober González, Tras los dos empates en casa ante la Real B y el Castellón, el técnico tendrá que volver a repensarse. A los refuerzos los necesitará bien de inmediato
+Noticia 10: Potente, rápido, rematador y carismático: así juega William Agada, nuevo fichaje del Real Zaragoza, El nuevo delantero blanquillo va bien de cabeza pese a su altura y destaca por su colocación y velocidad al espacio
+
+[2026-01-28 00:22:08.720783] Curated news for user 1331489813, Noticia 1: Endesa, tu casa’, el nuevo concepto de atención comercial de la compañía, llega a la capital aragonesa, Endesa ha inaugurado una nueva tienda en Zaragoza situada en la calle Manuel Serrano Sanz, número 3, en...
+Noticia 2: Bell-Haynes (Zaragoza) estará de baja entre 4 y 6 meses por una intervención en la mano, El base canadiense del Casademont Zaragoza Trae Bell-Haynes pasará por el quirófano en los...
+Noticia 3: Policía Nacional arresta a un hombre por estafar a una pareja con la compra de una bici eléctrica en Zaragoza, Agentes de la Policía Nacional han detenido a un hombre en Zaragoza como presunto autor de un delito de...
+Noticia 4: Puerto Venecia celebra San Valero con roscón y pasacalles de Cabezudos, Puerto Venecia comienza este miércoles, 28 de enero, con la celebración de San Valero, patrón de Zaragoza,...
+Noticia 5: Entre el esplendor del siglo XIX y la piqueta de 1970: el Castillo Palomar y su legado en Zaragoza, Construido a finales del XIX por la familia Palomar, este palacio simbolizó el auge de la burguesía zaragozana: demolido en 1970, hoy su memoria perdura en el Parque Castillo Palomar
+Noticia 7: La mejor versión de Rubén Sellés en el Real Zaragoza y el aquí, ahora y ya con Agada y Rober González, Tras los dos empates en casa ante la Real B y el Castellón, el técnico tendrá que volver a repensarse. A los refuerzos los necesitará bien de inmediato
+Noticia 10: Potente, rápido, rematador y carismático: así juega William Agada, nuevo fichaje del Real Zaragoza, El nuevo delantero blanquillo va bien de cabeza pese a su altura y destaca por su colocación y velocidad al espacio
+.
+[2026-01-28 00:22:08.908842] Generating podcast script for city: Zaragoza in es.
+[2026-01-28 00:22:09.384477] OpenRouter API failed: Error code: 404 - {'error': {'message': 'No endpoints found for google/gemma-2-9b-it:free.', 'code': 404}, 'user_id': 'user_38ATusjHGznqscH1nEtfJIT7FOT'}. Falling back to Ollama.
+[2026-01-28 00:22:34.610740] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-28 00:22:34.611245] Generated podcast script for user 1331489813.
+[2026-01-28 00:22:34.735897] Generating audio from script.
+[2026-01-28 00:22:42.488565] Audio generated at output.ogg
+[2026-01-28 00:22:42.490496] Generated audio at output.ogg for user 1331489813.
+[2026-01-28 00:22:43.296228] Sent podcast to user 1331489813.
+[2026-01-28 00:23:12.550701] Fetching news for city: Technology.
+[2026-01-28 00:23:13.269909] Found 10 articles for city: Technology.
+[2026-01-28 00:23:13.270441] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-28 00:23:13.270784] TOTAL RESULTS for Technology: 10
+[2026-01-28 00:23:13.272240] Generating audio from script.
+[2026-01-28 00:23:16.130599] Audio generated at output.ogg
+[2026-01-28 00:23:16.133922] Bot started.
+[2026-01-28 00:23:18.373582] Getting profile for user 1331489813.
+[2026-01-28 00:23:18.374191] Loading user profiles.
+[2026-01-28 00:23:18.374662] Profile found for user 1331489813.
+[2026-01-28 00:23:18.374949] User 1331489813 requested a podcast in es.
+[2026-01-28 00:23:18.375238] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-28 00:23:18.497502] Fetching news for city: Zaragoza.
+[2026-01-28 00:23:19.130820] Found 10 articles for city: Zaragoza.
+[2026-01-28 00:23:19.131367] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-28 00:23:19.131729] TOTAL RESULTS for Zaragoza: 10
+[2026-01-28 00:23:19.133352] Found 10 news articles for city: Zaragoza.
+[2026-01-28 00:23:19.133717] Getting profile for user 1331489813.
+[2026-01-28 00:23:19.134061] Loading user profiles.
+[2026-01-28 00:23:19.134486] Profile found for user 1331489813.
+[2026-01-28 00:23:19.134767] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-28 00:23:19.257712] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-28 00:23:29.373238] Successfully selected and adapted news for city: Zaragoza in es.
+[2026-01-28 00:23:29.373731] Curated news: 
+Noticia 1: Endesa, tu casa', el nuevo concepto de atención comercial de la compañía, llega a la capital aragonesa, Endesa ha inaugurado una nueva tienda en Zaragoza situada en la calle Manuel Serrano Sanz, número 3, en...
+Noticia 2: Bell-Haynes (Zaragoza) estará de baja entre 4 y 6 meses por una intervención en la mano, El base canadiense del Casademont Zaragoza Trae Bell-Haynes pasará por el quirófano en los...
+Noticia 3: Policía Nacional arresta a un hombre por estafar a una pareja con la compra de una bici eléctrica en Zaragoza, Agentes de la Policía Nacional han detenido a un hombre en Zaragoza como presunto autor de un delito de...
+Noticia 5: Entre el esplendor del siglo XIX y la piqueta de 1970: el Castillo Palomar y su legado en Zaragoza, Construido a finales del XIX por la familia Palomar, este palacio simbolizó el auge de la burguesía zaragozana: demolido en 1970, hoy su memoria perdura en el Parque Castillo Palomar
+Noticia 7: La mejor versión de Rubén Sellés en el Real Zaragoza y el aquí, ahora y ya con Agada y Rober González, Tras los dos empates en casa ante la Real B y el Castellón, el técnico tendrá que volver a repensarse. A los refuerzos los necesitará bien de inmediato
+Noticia 8: La influencer que dejó su vida en Ámsterdam para vivir autosuficiente en una ‘granja off-grid’ en España: “Nuestro sueño se hizo realidad”, Sandrine Coosemans dejó su trabajo en la ciudad para mudarse a una zona rural de Zaragoza, compró un terreno y creó su propia granja.
+Noticia 9: La puerta de salida del Real Zaragoza para Dani Gómez se hace muy pequeña, Su entorno asegura que se queda «al 100%» salvo que llegue una opción que ahora mismo no se dibuja en los últimos días de mercado
+Noticia 10: Potente, rápido, rematador y carismático: así juega William Agada, nuevo fichaje del Real Zaragoza, El nuevo delantero blanquillo va bien de cabeza pese a su altura y destaca por su colocación y velocidad al espacio
+
+[2026-01-28 00:23:29.374069] Curated news for user 1331489813, 
+Noticia 1: Endesa, tu casa', el nuevo concepto de atención comercial de la compañía, llega a la capital aragonesa, Endesa ha inaugurado una nueva tienda en Zaragoza situada en la calle Manuel Serrano Sanz, número 3, en...
+Noticia 2: Bell-Haynes (Zaragoza) estará de baja entre 4 y 6 meses por una intervención en la mano, El base canadiense del Casademont Zaragoza Trae Bell-Haynes pasará por el quirófano en los...
+Noticia 3: Policía Nacional arresta a un hombre por estafar a una pareja con la compra de una bici eléctrica en Zaragoza, Agentes de la Policía Nacional han detenido a un hombre en Zaragoza como presunto autor de un delito de...
+Noticia 5: Entre el esplendor del siglo XIX y la piqueta de 1970: el Castillo Palomar y su legado en Zaragoza, Construido a finales del XIX por la familia Palomar, este palacio simbolizó el auge de la burguesía zaragozana: demolido en 1970, hoy su memoria perdura en el Parque Castillo Palomar
+Noticia 7: La mejor versión de Rubén Sellés en el Real Zaragoza y el aquí, ahora y ya con Agada y Rober González, Tras los dos empates en casa ante la Real B y el Castellón, el técnico tendrá que volver a repensarse. A los refuerzos los necesitará bien de inmediato
+Noticia 8: La influencer que dejó su vida en Ámsterdam para vivir autosuficiente en una ‘granja off-grid’ en España: “Nuestro sueño se hizo realidad”, Sandrine Coosemans dejó su trabajo en la ciudad para mudarse a una zona rural de Zaragoza, compró un terreno y creó su propia granja.
+Noticia 9: La puerta de salida del Real Zaragoza para Dani Gómez se hace muy pequeña, Su entorno asegura que se queda «al 100%» salvo que llegue una opción que ahora mismo no se dibuja en los últimos días de mercado
+Noticia 10: Potente, rápido, rematador y carismático: así juega William Agada, nuevo fichaje del Real Zaragoza, El nuevo delantero blanquillo va bien de cabeza pese a su altura y destaca por su colocación y velocidad al espacio
+.
+[2026-01-28 00:23:29.565089] Generating podcast script for city: Zaragoza in es.
+[2026-01-28 00:23:42.369681] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-28 00:23:42.370177] Generated podcast script for user 1331489813.
+[2026-01-28 00:23:42.510800] Generating audio from script.
+[2026-01-28 00:23:50.117890] Audio generated at output.ogg
+[2026-01-28 00:23:50.119932] Generated audio at output.ogg for user 1331489813.
+[2026-01-28 00:23:50.963709] Sent podcast to user 1331489813.

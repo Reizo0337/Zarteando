@@ -30,7 +30,6 @@ class SchedulerManager:
         self.loaded_data = self._load_persistence()
 
     def set_loop(self, loop):
-        """Sets the event loop for running async jobs."""
         self.loop = loop
 
     def _load_persistence(self):
@@ -63,7 +62,6 @@ class SchedulerManager:
             logger.error(f"Error saving persistence file: {e}")
 
     def start(self):
-        """Starts the scheduler in a separate thread."""
         if not self.running:
             self.running = True
             self.thread = threading.Thread(target=self._run_pending, daemon=True)
@@ -77,14 +75,12 @@ class SchedulerManager:
             time.sleep(1)
 
     def stop(self):
-        """Stops the scheduler."""
         self.running = False
         if self.thread:
             self.thread.join()
             logger.info("Scheduler stopped.")
 
     def _check_daily_jobs(self):
-        """Checks and runs timezone-aware daily jobs."""
         # Get current UTC time once per iteration
         now_utc = datetime.now(timezone.utc)
         
@@ -139,7 +135,6 @@ class SchedulerManager:
                 logger.error(f"Error checking daily job for {job.get('chat_id')}: {e}")
 
     def load_jobs(self, job_func):
-        """Loads and schedules jobs from the persistence file."""
         count = 0
         for chat_id_str, job_list in self.loaded_data.items():
             try:
@@ -192,9 +187,6 @@ class SchedulerManager:
             return False
 
     def add_daily_job(self, chat_id, city, time_str, job_func, timezone_str="UTC"):
-        """
-        Schedules a daily job for a specific chat and city at a given time.
-        """
         if self._schedule_internal(chat_id, city, time_str, job_func, timezone_str):
             # Persistence logic
             str_chat_id = str(chat_id)
@@ -215,7 +207,6 @@ class SchedulerManager:
         return False
 
     def remove_daily_job(self, chat_id, city):
-        """Removes all daily jobs for a specific city and chat_id."""
         # Update persistence
         str_chat_id = str(chat_id)
         removed = False
@@ -241,10 +232,6 @@ class SchedulerManager:
 scheduler_manager = SchedulerManager()
 
 def parse_time(time_str):
-    """
-    Attempts to parse a time string into HH:MM format (24-hour).
-    Supports: HH:MM, H:MM, HH:MMAM/PM, H:MMAM/PM
-    """
     formats = ["%H:%M", "%I:%M%p", "%I:%M %p"]
     
     for fmt in formats:
@@ -256,14 +243,6 @@ def parse_time(time_str):
     return None
 
 def handle_dailynews_logic(chat_id, args, job_callback):
-    """
-    Logic for the /dailynews command.
-    
-    :param chat_id: Telegram chat ID.
-    :param args: List of arguments (e.g. ["Madrid", "8:00AM"]).
-    :param job_callback: Function to execute when schedule triggers.
-    :return: Tuple (success, city, formatted_time)
-    """
     if len(args) < 2:
         return False, None, None
 

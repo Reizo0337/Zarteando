@@ -239,9 +239,6 @@ TRANSLATIONS = {
 }
 
 def get_translation(lang, key, **kwargs):
-    """
-    Retrieves a translated string for a given language and key.
-    """
     translation_table = TRANSLATIONS.get(lang, TRANSLATIONS["es"])
     translation = translation_table.get(key, key)
     

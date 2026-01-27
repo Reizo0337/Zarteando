@@ -2,7 +2,35 @@ from ollama import AsyncClient
 from datetime import datetime
 from utils import send_log
 from translations import get_translation
-client = AsyncClient(timeout=300)
+import os
+from openai import AsyncOpenAI
+
+async def generate_with_fallback(prompt):
+    # 1. Intentar OpenRouter
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if api_key:
+        try:
+            client = AsyncOpenAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=api_key,
+            )
+            # Usamos gemma-2-9b-it:free como modelo gratuito en OpenRouter
+            response = await client.chat.completions.create(
+                model="google/gemma-3-27b-it:free",
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            send_log(datetime.now(), f"OpenRouter API failed: {e}. Falling back to Ollama.")
+
+    # 2. Fallback a Ollama
+    client = AsyncClient(timeout=300)
+    response = await client.generate(
+        model="gemma3:4b",
+        prompt=prompt,
+        options={"num_ctx": 8192}
+    )
+    return response.get("response", "")
 
 async def podcast_script(city, filtered_news_text, lang="es"):
     send_log(datetime.now(), f"Generating podcast script for city: {city} in {lang}.")
@@ -36,13 +64,7 @@ async def podcast_script(city, filtered_news_text, lang="es"):
         """
 
     try:
-        client = AsyncClient(timeout=300)
-        response = await client.generate(
-            model="gemma3:4b",
-            prompt=prompt,
-            options={"num_ctx": 8192}
-        )
-        script = response.get("response", "")
+        script = await generate_with_fallback(prompt)
         send_log(datetime.now(), f"Successfully generated podcast script for city: {city} in {lang}.")
         return script
     except Exception as e:
@@ -56,13 +78,7 @@ async def daily_summary(city, news, lang="es"):
     prompt = f"Resume las noticias más importantes de hoy en {city}. El output debe estar en {lang}. IMPORTANTE: No uses formato Markdown, solo texto plano:\n{news}"
 
     try:
-        client = AsyncClient(timeout=300)
-        response = await client.generate(
-            model="gemma3:4b",
-            prompt=prompt,
-            options={"num_ctx": 8192}
-        )
-        summary = response.get("response", "")
+        summary = await generate_with_fallback(prompt)
         send_log(datetime.now(), f"Successfully generated daily summary for city: {city} in {lang}.")
         return summary
     except Exception as e:
@@ -102,13 +118,7 @@ async def select_and_adapt_news(city, news, user_interests, lang="es"):
         """
 
     try:
-        client = AsyncClient(timeout=300)
-        response = await client.generate(
-            model="gemma3:4b",
-            prompt=prompt,
-            options={"num_ctx": 8192}
-        )
-        curated_news = response.get("response", "")
+        curated_news = await generate_with_fallback(prompt)
         send_log(datetime.now(), f"Successfully selected and adapted news for city: {city} in {lang}.")
         send_log(datetime.now(), f"Curated news: {curated_news}")
         return curated_news
@@ -150,13 +160,7 @@ async def daily_news_script(city, filtered_news_text, lang="es"):
         """
 
     try:
-        client = AsyncClient(timeout=300)
-        response = await client.generate(
-            model="gemma3:4b",
-            prompt=prompt,
-            options={"num_ctx": 8192}
-        )
-        script = response.get("response", "")
+        script = await generate_with_fallback(prompt)
         send_log(datetime.now(), f"Successfully generated daily news script for city: {city} in {lang}.")
         return script
     except Exception as e:

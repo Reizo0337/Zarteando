@@ -1,14 +1,14 @@
 import os
 import asyncio
-from content import client
+from ollama import AsyncClient
 from news import get_news
 from tts import generate_tts as text_to_audio
 
 async def run_diagnostics():
-    """Runs all diagnostic checks and returns a list of results."""
     results = []
     # 1. Check Ollama
     try:
+        client = AsyncClient(timeout=5)
         await client.list()
         results.append("✅ Servicio Ollama iniciado correctamente.")
     except Exception as e:
@@ -40,7 +40,6 @@ async def run_diagnostics():
     return results
 
 def print_diagnostics():
-    """Runs diagnostics and prints the results to stdout."""
     print("🔄 Verificando servicios...")
     results = asyncio.run(run_diagnostics())
     for line in results:
