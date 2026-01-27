@@ -17,7 +17,8 @@ def _get_news_sync(city, lang="es"):
     params = {
         "q": city,
         "lang": lang,
-        "token": API_KEY
+        "max": 100,
+        "apikey": API_KEY
     }
     try:
         r = requests.get(url, params=params)
@@ -26,6 +27,8 @@ def _get_news_sync(city, lang="es"):
         
         articles = data.get("articles", [])
         send_log(datetime.now(), f"Found {len(articles)} articles for city: {city}.")
+        if len(articles) == 10:
+            send_log(datetime.now(), "WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.")
 
         # The user had a print here, I'll keep it as a log.
         send_log(datetime.now(), f"TOTAL RESULTS for {city}: {len(articles)}")

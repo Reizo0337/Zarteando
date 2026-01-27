@@ -25,7 +25,7 @@ async def run_diagnostics():
     # 3. Check TTS
     try:
         # Generate a short test audio
-        path = await text_to_audio("Test system check.", lang="en")
+        path = await text_to_audio("Test system check.", lang="es")
         if path and os.path.exists(path):
             results.append("✅ Servicio TTS iniciado correctamente.")
             # Clean up the test file

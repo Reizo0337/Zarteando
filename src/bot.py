@@ -7,7 +7,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Callb
 from telegram.error import BadRequest
 
 from news import get_news
-from content import podcast_script, select_and_adapt_news, daily_summary, daily_news_script, client
+from content import podcast_script, select_and_adapt_news, daily_summary, daily_news_script
 from scheduler import scheduler_manager, handle_dailynews_logic
 from tts import generate_tts as text_to_audio
 from profile import set_users_interests, get_user_profile, set_users_lang, get_user_lang
@@ -77,7 +77,7 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_interests=user_preferences,
         lang=user_lang
     )
-    send_log(datetime.now(), f"Curated news for user {user_id}.")
+    send_log(datetime.now(), f"Curated news for user {user_id}, {curated_news}.")
 
     await update.message.chat.send_action(action="typing")
     await update.message.reply_text(get_translation(user_lang, "generating_script"))

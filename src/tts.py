@@ -20,21 +20,21 @@ def _generate_tts_sync(script, lang="es", output_path="output.ogg"):
 
     try:
         # Select voice based on language
-        voice_id = "es-ES-Javier"
+        voice_id = "es-ES-Enrique"
         if lang == "en":
-            voice_id = "en-US-Carter"
+            voice_id = "en-US-Finley"
         elif lang == "de":
-            voice_id = "de-DE-Bernd"
+            voice_id = "de-DE-Lara"
         elif lang == "fr":
-            voice_id = "fr-FR-Antoine"
+            voice_id = "fr-FR-Axel"
         elif lang == "ro":
-            voice_id = "ro-RO-Andrei"
+            voice_id = "ro-RO-Ronnie"
 
         # Generar audio en Murf (pidiendo OGG directamente)
         response = client.text_to_speech.generate(
             text=script,
             voice_id=voice_id,
-            format="OGG"  # 🔥 así evitas convertir después
+            format="OGG",
         )
 
         # Obtener URL correcta del SDK

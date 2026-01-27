@@ -149,3 +149,350 @@
 [2026-01-27 17:10:09.548812] Generating audio from script.
 [2026-01-27 17:10:12.429784] Audio generated at output.ogg
 [2026-01-27 17:10:12.432381] Bot started.
+[2026-01-27 18:40:08.045665] Fetching news for city: Technology.
+[2026-01-27 18:40:08.781542] Found 10 articles for city: Technology.
+[2026-01-27 18:40:08.782111] TOTAL RESULTS for Technology: 10
+[2026-01-27 18:40:08.783825] Generating audio from script.
+[2026-01-27 18:40:11.634825] Audio generated at output.ogg
+[2026-01-27 18:40:11.637883] Bot started.
+[2026-01-27 18:40:27.049800] Getting profile for user 1331489813.
+[2026-01-27 18:40:27.050448] Loading user profiles.
+[2026-01-27 18:40:27.051858] Profile found for user 1331489813.
+[2026-01-27 18:40:27.052225] User 1331489813 requested a podcast in es.
+[2026-01-27 18:40:27.052562] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 18:40:27.321620] Fetching news for city: Zaragoza.
+[2026-01-27 18:40:27.950358] Found 10 articles for city: Zaragoza.
+[2026-01-27 18:40:27.951052] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 18:40:27.952586] Found 10 news articles for city: Zaragoza.
+[2026-01-27 18:40:27.952955] Getting profile for user 1331489813.
+[2026-01-27 18:40:27.953311] Loading user profiles.
+[2026-01-27 18:40:27.953730] Profile found for user 1331489813.
+[2026-01-27 18:40:27.953996] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 18:40:28.097764] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 18:40:28.098848] Error selecting and adapting news for city Zaragoza in es: Event loop is closed
+[2026-01-27 18:40:28.099249] Curated news for user 1331489813.
+[2026-01-27 18:40:28.217655] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 18:40:56.123355] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-27 18:40:56.124669] Generated podcast script for user 1331489813.
+[2026-01-27 18:40:56.262527] Generating audio from script.
+[2026-01-27 18:41:04.884931] Audio generated at output.ogg
+[2026-01-27 18:41:04.887168] Generated audio at output.ogg for user 1331489813.
+[2026-01-27 18:41:08.793133] Sent podcast to user 1331489813.
+[2026-01-27 18:52:13.784702] Fetching news for city: Technology.
+[2026-01-27 18:52:14.646242] Found 10 articles for city: Technology.
+[2026-01-27 18:52:14.646773] TOTAL RESULTS for Technology: 10
+[2026-01-27 18:52:14.648667] Generating audio from script.
+[2026-01-27 18:52:14.649007] Error generating audio: TextToSpeechClient.generate() got an unexpected keyword argument 'model'
+[2026-01-27 18:52:14.650747] Bot started.
+[2026-01-27 18:52:29.073229] Getting profile for user 1331489813.
+[2026-01-27 18:52:29.073905] Loading user profiles.
+[2026-01-27 18:52:29.074567] Profile found for user 1331489813.
+[2026-01-27 18:52:29.074886] User 1331489813 requested a podcast in es.
+[2026-01-27 18:52:29.075174] User 1331489813 requested a podcast for city: Madrid.
+[2026-01-27 18:52:29.339467] Fetching news for city: Madrid.
+[2026-01-27 18:52:30.062216] Found 10 articles for city: Madrid.
+[2026-01-27 18:52:30.062740] TOTAL RESULTS for Madrid: 10
+[2026-01-27 18:52:30.064147] Found 10 news articles for city: Madrid.
+[2026-01-27 18:52:30.064513] Getting profile for user 1331489813.
+[2026-01-27 18:52:30.064894] Loading user profiles.
+[2026-01-27 18:52:30.065365] Profile found for user 1331489813.
+[2026-01-27 18:52:30.065644] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 18:52:30.228310] Selecting and adapting news for city: Madrid with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 18:52:30.229385] Error selecting and adapting news for city Madrid in es: Event loop is closed
+[2026-01-27 18:52:30.229909] Curated news for user 1331489813.
+[2026-01-27 18:52:30.395458] Generating podcast script for city: Madrid in es.
+[2026-01-27 18:52:55.079571] Successfully generated podcast script for city: Madrid in es.
+[2026-01-27 18:52:55.080928] Generated podcast script for user 1331489813.
+[2026-01-27 18:52:55.316858] Generating audio from script.
+[2026-01-27 18:52:55.317457] Error generating audio: TextToSpeechClient.generate() got an unexpected keyword argument 'model'
+[2026-01-27 18:52:55.317895] Error generating audio for user 1331489813.
+[2026-01-27 18:55:46.585588] Fetching news for city: Technology.
+[2026-01-27 18:55:47.249337] Found 10 articles for city: Technology.
+[2026-01-27 18:55:47.249909] TOTAL RESULTS for Technology: 10
+[2026-01-27 18:55:47.251639] Generating audio from script.
+[2026-01-27 18:55:47.677498] Error generating audio: status_code: 400, body: {'errorMessage': 'Invalid voice_id en-US-finley. Use the GET /v1/speech/voices endpoint to retrieve the full list of supported voices, or visit: https://murf.ai/api/docs/voices-styles/voice-library, to view the voice library in our API docs.', 'errorCode': 400}
+[2026-01-27 18:55:47.679517] Bot started.
+[2026-01-27 18:56:37.700194] Fetching news for city: Technology.
+[2026-01-27 18:56:38.436535] Found 10 articles for city: Technology.
+[2026-01-27 18:56:38.437082] TOTAL RESULTS for Technology: 10
+[2026-01-27 18:56:38.438662] Generating audio from script.
+[2026-01-27 18:56:41.295763] Audio generated at output.ogg
+[2026-01-27 18:56:41.298591] Bot started.
+[2026-01-27 18:56:48.066857] Getting profile for user 1331489813.
+[2026-01-27 18:56:48.067605] Loading user profiles.
+[2026-01-27 18:56:48.068063] Profile found for user 1331489813.
+[2026-01-27 18:56:48.068349] User 1331489813 requested a podcast in es.
+[2026-01-27 18:56:48.068623] User 1331489813 requested a podcast for city: Madrid.
+[2026-01-27 18:56:48.329463] Fetching news for city: Madrid.
+[2026-01-27 18:56:49.096519] Found 10 articles for city: Madrid.
+[2026-01-27 18:56:49.097068] TOTAL RESULTS for Madrid: 10
+[2026-01-27 18:56:49.098593] Found 10 news articles for city: Madrid.
+[2026-01-27 18:56:49.098991] Getting profile for user 1331489813.
+[2026-01-27 18:56:49.099367] Loading user profiles.
+[2026-01-27 18:56:49.099815] Profile found for user 1331489813.
+[2026-01-27 18:56:49.100112] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 18:56:49.237222] Selecting and adapting news for city: Madrid with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 18:56:49.238427] Error selecting and adapting news for city Madrid in es: Event loop is closed
+[2026-01-27 18:56:49.239059] Curated news for user 1331489813.
+[2026-01-27 18:56:49.392469] Generating podcast script for city: Madrid in es.
+[2026-01-27 18:57:08.214073] Successfully generated podcast script for city: Madrid in es.
+[2026-01-27 18:57:08.214591] Generated podcast script for user 1331489813.
+[2026-01-27 18:57:08.390019] Generating audio from script.
+[2026-01-27 18:57:15.660402] Audio generated at output.ogg
+[2026-01-27 18:57:15.662210] Generated audio at output.ogg for user 1331489813.
+[2026-01-27 18:57:16.707376] Sent podcast to user 1331489813.
+[2026-01-27 18:59:11.201087] Fetching news for city: Technology.
+[2026-01-27 18:59:11.966188] Found 10 articles for city: Technology.
+[2026-01-27 18:59:11.966742] TOTAL RESULTS for Technology: 10
+[2026-01-27 18:59:11.968344] Generating audio from script.
+[2026-01-27 18:59:14.785957] Audio generated at output.ogg
+[2026-01-27 18:59:14.788766] Bot started.
+[2026-01-27 18:59:15.156581] Getting profile for user 1331489813.
+[2026-01-27 18:59:15.157187] Loading user profiles.
+[2026-01-27 18:59:15.157790] Profile found for user 1331489813.
+[2026-01-27 18:59:15.158203] User 1331489813 requested a podcast in es.
+[2026-01-27 18:59:15.158613] User 1331489813 requested a podcast for city: Madrid.
+[2026-01-27 18:59:15.309482] Fetching news for city: Madrid.
+[2026-01-27 18:59:16.016083] Found 10 articles for city: Madrid.
+[2026-01-27 18:59:16.016602] TOTAL RESULTS for Madrid: 10
+[2026-01-27 18:59:16.018036] Found 10 news articles for city: Madrid.
+[2026-01-27 18:59:16.018430] Getting profile for user 1331489813.
+[2026-01-27 18:59:16.018760] Loading user profiles.
+[2026-01-27 18:59:16.019159] Profile found for user 1331489813.
+[2026-01-27 18:59:16.019439] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 18:59:16.190586] Selecting and adapting news for city: Madrid with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 18:59:16.193203] Error selecting and adapting news for city Madrid in es: Event loop is closed
+[2026-01-27 18:59:16.193956] Curated news for user 1331489813.
+[2026-01-27 18:59:16.429421] Generating podcast script for city: Madrid in es.
+[2026-01-27 18:59:34.634177] Successfully generated podcast script for city: Madrid in es.
+[2026-01-27 18:59:34.634700] Generated podcast script for user 1331489813.
+[2026-01-27 18:59:34.809892] Generating audio from script.
+[2026-01-27 18:59:42.078208] Audio generated at output.ogg
+[2026-01-27 18:59:42.080054] Generated audio at output.ogg for user 1331489813.
+[2026-01-27 18:59:43.319347] Sent podcast to user 1331489813.
+[2026-01-27 18:59:43.319943] Getting profile for user 1331489813.
+[2026-01-27 18:59:43.320327] Loading user profiles.
+[2026-01-27 18:59:43.320883] Profile found for user 1331489813.
+[2026-01-27 18:59:43.321271] User 1331489813 requested a podcast in es.
+[2026-01-27 18:59:43.321675] User 1331489813 requested a podcast for city: Madrid.
+[2026-01-27 18:59:43.485338] Fetching news for city: Madrid.
+[2026-01-27 18:59:44.368031] Found 10 articles for city: Madrid.
+[2026-01-27 18:59:44.368548] TOTAL RESULTS for Madrid: 10
+[2026-01-27 18:59:44.369874] Found 10 news articles for city: Madrid.
+[2026-01-27 18:59:44.370202] Getting profile for user 1331489813.
+[2026-01-27 18:59:44.370526] Loading user profiles.
+[2026-01-27 18:59:44.371071] Profile found for user 1331489813.
+[2026-01-27 18:59:44.371360] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 18:59:44.522089] Selecting and adapting news for city: Madrid with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 19:08:18.490231] Fetching news for city: Technology.
+[2026-01-27 19:08:19.331200] Found 10 articles for city: Technology.
+[2026-01-27 19:08:19.331715] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:08:19.333300] Generating audio from script.
+[2026-01-27 19:08:22.219712] Audio generated at output.ogg
+[2026-01-27 19:08:22.222641] Bot started.
+[2026-01-27 19:09:04.069371] Getting profile for user 1331489813.
+[2026-01-27 19:09:04.070154] Loading user profiles.
+[2026-01-27 19:09:04.070770] Profile found for user 1331489813.
+[2026-01-27 19:09:04.071100] User 1331489813 requested a podcast in es.
+[2026-01-27 19:09:04.071459] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 19:09:04.344370] Fetching news for city: Zaragoza.
+[2026-01-27 19:09:05.057539] Found 10 articles for city: Zaragoza.
+[2026-01-27 19:09:05.058141] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 19:09:05.059625] Found 10 news articles for city: Zaragoza.
+[2026-01-27 19:09:05.059977] Getting profile for user 1331489813.
+[2026-01-27 19:09:05.060296] Loading user profiles.
+[2026-01-27 19:09:05.060692] Profile found for user 1331489813.
+[2026-01-27 19:09:05.060965] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 19:09:05.198308] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 19:09:05.200076] Error selecting and adapting news for city Zaragoza in es: Event loop is closed
+[2026-01-27 19:09:05.200635] Curated news for user 1331489813.
+[2026-01-27 19:09:05.367915] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 19:13:21.018765] Fetching news for city: Technology.
+[2026-01-27 19:13:21.757785] Found 10 articles for city: Technology.
+[2026-01-27 19:13:21.758249] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:13:21.758526] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:13:21.760047] Generating audio from script.
+[2026-01-27 19:13:24.772914] Audio generated at output.ogg
+[2026-01-27 19:13:24.776707] Bot started.
+[2026-01-27 19:14:23.142838] Getting profile for user 1331489813.
+[2026-01-27 19:14:23.143378] Loading user profiles.
+[2026-01-27 19:14:23.143826] Profile found for user 1331489813.
+[2026-01-27 19:14:23.144125] User 1331489813 requested a podcast in es.
+[2026-01-27 19:14:23.144442] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 19:14:23.502212] Fetching news for city: Zaragoza.
+[2026-01-27 19:14:24.162801] Found 10 articles for city: Zaragoza.
+[2026-01-27 19:14:24.163308] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:14:24.163604] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 19:14:24.164921] Found 10 news articles for city: Zaragoza.
+[2026-01-27 19:14:24.165284] Getting profile for user 1331489813.
+[2026-01-27 19:14:24.165662] Loading user profiles.
+[2026-01-27 19:14:24.166108] Profile found for user 1331489813.
+[2026-01-27 19:14:24.166379] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 19:14:24.333178] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 19:14:24.334922] Error selecting and adapting news for city Zaragoza in es: Event loop is closed
+[2026-01-27 19:14:24.335464] Curated news for user 1331489813.
+[2026-01-27 19:14:24.516100] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 19:14:44.032691] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-27 19:14:44.033232] Generated podcast script for user 1331489813.
+[2026-01-27 19:14:44.207481] Generating audio from script.
+[2026-01-27 19:14:52.448395] Audio generated at output.ogg
+[2026-01-27 19:14:52.450238] Generated audio at output.ogg for user 1331489813.
+[2026-01-27 19:14:53.370675] Sent podcast to user 1331489813.
+[2026-01-27 19:15:21.342787] Fetching news for city: Technology.
+[2026-01-27 19:15:22.129630] Found 10 articles for city: Technology.
+[2026-01-27 19:15:22.130139] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:15:22.130460] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:15:22.131941] Generating audio from script.
+[2026-01-27 19:15:24.857600] Audio generated at output.ogg
+[2026-01-27 19:15:24.860362] Bot started.
+[2026-01-27 19:15:25.224442] Getting profile for user 1331489813.
+[2026-01-27 19:15:25.224914] Loading user profiles.
+[2026-01-27 19:15:25.225324] Profile found for user 1331489813.
+[2026-01-27 19:15:25.225602] User 1331489813 requested a podcast in es.
+[2026-01-27 19:15:25.225881] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 19:15:25.385440] Fetching news for city: Zaragoza.
+[2026-01-27 19:15:26.057442] Found 10 articles for city: Zaragoza.
+[2026-01-27 19:15:26.057987] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:15:26.058362] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 19:15:26.060024] Found 10 news articles for city: Zaragoza.
+[2026-01-27 19:15:26.060506] Getting profile for user 1331489813.
+[2026-01-27 19:15:26.060928] Loading user profiles.
+[2026-01-27 19:15:26.061466] Profile found for user 1331489813.
+[2026-01-27 19:15:26.061842] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 19:15:26.276585] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 19:15:26.278230] Error selecting and adapting news for city Zaragoza in es: Event loop is closed
+[2026-01-27 19:15:26.278666] Curated news for user 1331489813, Error al seleccionar las noticias para Zaragoza..
+[2026-01-27 19:15:26.434445] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 19:15:43.726437] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-27 19:15:43.726980] Generated podcast script for user 1331489813.
+[2026-01-27 19:15:44.011756] Generating audio from script.
+[2026-01-27 19:25:04.570516] Fetching news for city: Technology.
+[2026-01-27 19:25:05.373325] Found 10 articles for city: Technology.
+[2026-01-27 19:25:05.373838] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:25:05.374114] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:25:05.375611] Generating audio from script.
+[2026-01-27 19:25:08.291934] Audio generated at output.ogg
+[2026-01-27 19:25:08.295794] Bot started.
+[2026-01-27 19:27:19.713467] Fetching news for city: Technology.
+[2026-01-27 19:27:20.479086] Found 10 articles for city: Technology.
+[2026-01-27 19:27:20.479637] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:27:20.480040] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:27:20.481629] Generating audio from script.
+[2026-01-27 19:27:23.241984] Audio generated at output.ogg
+[2026-01-27 19:27:23.244754] Bot started.
+[2026-01-27 19:27:28.699434] Getting profile for user 1331489813.
+[2026-01-27 19:27:28.699996] Loading user profiles.
+[2026-01-27 19:27:28.700434] Profile found for user 1331489813.
+[2026-01-27 19:27:28.700709] User 1331489813 requested a podcast in es.
+[2026-01-27 19:27:28.700974] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 19:27:28.960703] Fetching news for city: Zaragoza.
+[2026-01-27 19:27:29.815786] Found 10 articles for city: Zaragoza.
+[2026-01-27 19:27:29.816461] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:27:29.816814] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 19:27:29.818570] Found 10 news articles for city: Zaragoza.
+[2026-01-27 19:27:29.818886] Getting profile for user 1331489813.
+[2026-01-27 19:27:29.819248] Loading user profiles.
+[2026-01-27 19:27:29.819654] Profile found for user 1331489813.
+[2026-01-27 19:27:29.819917] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 19:27:29.978256] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 19:27:56.396279] Fetching news for city: Technology.
+[2026-01-27 19:27:57.116280] Found 10 articles for city: Technology.
+[2026-01-27 19:27:57.116779] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:27:57.117116] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:27:57.118725] Generating audio from script.
+[2026-01-27 19:27:59.940889] Audio generated at output.ogg
+[2026-01-27 19:27:59.944426] Bot started.
+[2026-01-27 19:28:13.953390] Fetching news for city: Technology.
+[2026-01-27 19:28:14.767391] Found 10 articles for city: Technology.
+[2026-01-27 19:28:14.767873] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:28:14.768163] TOTAL RESULTS for Technology: 10
+[2026-01-27 19:28:14.769690] Generating audio from script.
+[2026-01-27 19:28:17.665687] Audio generated at output.ogg
+[2026-01-27 19:28:17.668378] Bot started.
+[2026-01-27 19:28:19.748656] Getting profile for user 1331489813.
+[2026-01-27 19:28:19.749409] Loading user profiles.
+[2026-01-27 19:28:19.749982] Profile found for user 1331489813.
+[2026-01-27 19:28:19.750367] User 1331489813 requested a podcast in es.
+[2026-01-27 19:28:19.750739] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 19:28:19.946952] Fetching news for city: Zaragoza.
+[2026-01-27 19:28:20.670091] Found 10 articles for city: Zaragoza.
+[2026-01-27 19:28:20.670581] WARNING: Received exactly 10 articles. GNews Free Tier is limited to 10 results.
+[2026-01-27 19:28:20.670865] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 19:28:20.672230] Found 10 news articles for city: Zaragoza.
+[2026-01-27 19:28:20.672542] Getting profile for user 1331489813.
+[2026-01-27 19:28:20.672860] Loading user profiles.
+[2026-01-27 19:28:20.673242] Profile found for user 1331489813.
+[2026-01-27 19:28:20.673507] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 19:28:20.884971] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 19:28:40.729497] Successfully selected and adapted news for city: Zaragoza in es.
+[2026-01-27 19:28:40.730022] Curated news: **Noticias relevantes para el usuario de Zaragoza:**
+
+**Título:** Debate cara a cara entre el popular Jorge Azcón y la socialista Pilar Alegría
+**Contenido:** Zaragoza, 26 ene (EFE).- No parecía que el debate cara a cara de los candidatos del PP y del PSOE a ...
+
+**Título:** Sondeos internos apuntan al 'sorpasso' de Vox al PSOE en Zaragoza y Teruel: "Es un tsunami"
+**Contenido:** Las alarmas se han disparado en el PSOE con la llegada de las nuevas entregas demoscópicas en Aragón. Según revelan fuentes socialistas a THE OBJECTIVE, El PSOE se hunde en las dos ciudades que concentran el 80% del voto a nivel autonómico.
+
+**Título:** La diócesis de Zaragoza veta a Vox el uso de un cartel de Abascal ante una iglesia con "fin electoral"
+**Contenido:** Vox anuncia una convocatoria para los medios de comunicación en Caspe y genera polémica en la Diócesis de Zaragoza por citar la iglesia.
+
+**Título:** Un colombiano afincado en Zaragoza, muy claro dos años después de haber llegado a España: "Hay que dejar el miedo y avanzar"
+**Contenido:** Jhonathan es tajante sobre cómo ha sido su adaptación a un nuevo país.
+
+---
+
+**Presentación del Podcast (con un toque de humor):**
+
+**(Intro musical con un ritmo optimista)**
+
+**Presentador:** ¡Bienvenidos a "Zaragoza Hoy"! El podcast que le trae las noticias más importantes de nuestra ciudad, con un toque de análisis y, si es necesario, un poco de sal.
+
+**Presentador:** Hoy tenemos un panorama político intenso, con los sondeos de Vox dando que hablar y un debate cara a cara entre Azcón y Alegría que promete ser... interesante. También analizamos la polémica que ha desatado la Diócesis con el uso de carteles de Vox, y la historia inspiradora de un colombiano que ha encontrado su hogar aquí en Zaragoza. 
+
+**(Pausa breve)**
+
+**Presentador:** Y no olvidemos el tiempo, porque a nadie le gusta salir de casa sin saber si va a llover... ¡La AEMET nos lo dice todo!
+
+**(Outro musical, con un pequeño toque de ironía)**
+
+**Presentador:** ¡Gracias por acompañarnos! No olviden suscribirse y compartir este podcast con sus amigos. ¡Hasta la próxima, y que tengan un buen martes!
+
+[2026-01-27 19:28:40.730386] Curated news for user 1331489813, **Noticias relevantes para el usuario de Zaragoza:**
+
+**Título:** Debate cara a cara entre el popular Jorge Azcón y la socialista Pilar Alegría
+**Contenido:** Zaragoza, 26 ene (EFE).- No parecía que el debate cara a cara de los candidatos del PP y del PSOE a ...
+
+**Título:** Sondeos internos apuntan al 'sorpasso' de Vox al PSOE en Zaragoza y Teruel: "Es un tsunami"
+**Contenido:** Las alarmas se han disparado en el PSOE con la llegada de las nuevas entregas demoscópicas en Aragón. Según revelan fuentes socialistas a THE OBJECTIVE, El PSOE se hunde en las dos ciudades que concentran el 80% del voto a nivel autonómico.
+
+**Título:** La diócesis de Zaragoza veta a Vox el uso de un cartel de Abascal ante una iglesia con "fin electoral"
+**Contenido:** Vox anuncia una convocatoria para los medios de comunicación en Caspe y genera polémica en la Diócesis de Zaragoza por citar la iglesia.
+
+**Título:** Un colombiano afincado en Zaragoza, muy claro dos años después de haber llegado a España: "Hay que dejar el miedo y avanzar"
+**Contenido:** Jhonathan es tajante sobre cómo ha sido su adaptación a un nuevo país.
+
+---
+
+**Presentación del Podcast (con un toque de humor):**
+
+**(Intro musical con un ritmo optimista)**
+
+**Presentador:** ¡Bienvenidos a "Zaragoza Hoy"! El podcast que le trae las noticias más importantes de nuestra ciudad, con un toque de análisis y, si es necesario, un poco de sal.
+
+**Presentador:** Hoy tenemos un panorama político intenso, con los sondeos de Vox dando que hablar y un debate cara a cara entre Azcón y Alegría que promete ser... interesante. También analizamos la polémica que ha desatado la Diócesis con el uso de carteles de Vox, y la historia inspiradora de un colombiano que ha encontrado su hogar aquí en Zaragoza. 
+
+**(Pausa breve)**
+
+**Presentador:** Y no olvidemos el tiempo, porque a nadie le gusta salir de casa sin saber si va a llover... ¡La AEMET nos lo dice todo!
+
+**(Outro musical, con un pequeño toque de ironía)**
+
+**Presentador:** ¡Gracias por acompañarnos! No olviden suscribirse y compartir este podcast con sus amigos. ¡Hasta la próxima, y que tengan un buen martes!
+.
+[2026-01-27 19:28:40.992659] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 19:29:05.117582] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-27 19:29:05.118177] Generated podcast script for user 1331489813.
+[2026-01-27 19:29:05.327982] Generating audio from script.
+[2026-01-27 19:29:13.040544] Audio generated at output.ogg
+[2026-01-27 19:29:13.042459] Generated audio at output.ogg for user 1331489813.
+[2026-01-27 19:29:17.336726] Sent podcast to user 1331489813.
