@@ -4,6 +4,8 @@ import threading
 import logging
 import json
 import os
+import asyncio
+import inspect
 from datetime import datetime, timezone
 try:
     from zoneinfo import ZoneInfo
@@ -20,15 +22,20 @@ class SchedulerManager:
         self.thread = None
         self.jobs = {}  # Dictionary to map chat_id to their scheduled jobs
         self.daily_jobs = [] # List of timezone-aware daily jobs
+        self.loop = None
         
         if persistence_file:
             self.persistence_file = persistence_file
         else:
-            # Default to ../data/scheduled_jobs.json relative to this file
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            # Default to ./data/scheduled_jobs.json relative to this file
+            base_dir = os.path.dirname(os.path.abspath(__file__))
             self.persistence_file = os.path.join(base_dir, "data", "scheduled_jobs.json")
             
         self.loaded_data = self._load_persistence()
+
+    def set_loop(self, loop):
+        """Sets the event loop for running async jobs."""
+        self.loop = loop
 
     def _load_persistence(self):
         if os.path.exists(self.persistence_file):
@@ -116,7 +123,13 @@ class SchedulerManager:
                         self._save_persistence()
 
                         # Run the job function
-                        threading.Thread(target=job['func']).start()
+                        if inspect.iscoroutinefunction(job['func']):
+                            if self.loop:
+                                asyncio.run_coroutine_threadsafe(job['func'](), self.loop)
+                            else:
+                                logger.error(f"Cannot run async job for {job['city']}: No event loop set.")
+                        else:
+                            threading.Thread(target=job['func']).start()
                     elif now_utc.second == 0:
                         logger.info(f"ℹ️ Job for {job['city']} already ran today ({today_str}).")
             except Exception as e:
@@ -144,12 +157,20 @@ class SchedulerManager:
 
     def _schedule_internal(self, chat_id, city, time_str, job_func, timezone_str="UTC", last_run=None):
         try:
-            def job_wrapper():
-                logger.info(f"Running scheduled job for {chat_id} - {city}")
-                try:
-                    job_func(chat_id, city)
-                except Exception as e:
-                    logger.error(f"Error executing job for {chat_id}: {e}")
+            if inspect.iscoroutinefunction(job_func):
+                async def job_wrapper():
+                    logger.info(f"Running scheduled job for {chat_id} - {city}")
+                    try:
+                        await job_func(chat_id, city)
+                    except Exception as e:
+                        logger.error(f"Error executing job for {chat_id}: {e}")
+            else:
+                def job_wrapper():
+                    logger.info(f"Running scheduled job for {chat_id} - {city}")
+                    try:
+                        job_func(chat_id, city)
+                    except Exception as e:
+                        logger.error(f"Error executing job for {chat_id}: {e}")
 
             # Add to internal list instead of schedule library
             job_entry = {

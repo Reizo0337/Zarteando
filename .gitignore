@@ -4,5 +4,6 @@
 *.mp3
 *.ogg
 __pycache__
-data/*
+src/data/*
 vendor
+src/data/logs.txt

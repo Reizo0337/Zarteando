@@ -5,10 +5,10 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 // File paths
-$users_file = '../data/user_preferences.json';
-$logs_file = '../data/logs.txt';
+$users_file = '../src/data/user_preferences.json';
+$logs_file = '../src/data/logs.txt';
 $bot_file = '../src/bot.py';
-$scheduled_jobs_file = '../data/scheduled_jobs.json';
+$scheduled_jobs_file = '../src/data/scheduled_jobs.json';
 
 
 // Get user count
