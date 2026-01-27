@@ -4,17 +4,30 @@ import threading
 import logging
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    # Fallback for Python < 3.9, though usually not needed in modern envs
+    from backports.zoneinfo import ZoneInfo
 
 # Configure logging
 logger = logging.getLogger(__name__)
 
 class SchedulerManager:
-    def __init__(self, persistence_file="scheduled_jobs.json"):
+    def __init__(self, persistence_file=None):
         self.running = False
         self.thread = None
         self.jobs = {}  # Dictionary to map chat_id to their scheduled jobs
-        self.persistence_file = persistence_file
+        self.daily_jobs = [] # List of timezone-aware daily jobs
+        
+        if persistence_file:
+            self.persistence_file = persistence_file
+        else:
+            # Default to ../data/scheduled_jobs.json relative to this file
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            self.persistence_file = os.path.join(base_dir, "data", "scheduled_jobs.json")
+            
         self.loaded_data = self._load_persistence()
 
     def _load_persistence(self):
@@ -29,6 +42,11 @@ class SchedulerManager:
 
     def _save_persistence(self):
         try:
+            # Ensure directory exists
+            directory = os.path.dirname(self.persistence_file)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+
             with open(self.persistence_file, 'w') as f:
                 json.dump(self.loaded_data, f, indent=4)
         except Exception as e:
@@ -45,6 +63,7 @@ class SchedulerManager:
     def _run_pending(self):
         while self.running:
             schedule.run_pending()
+            self._check_daily_jobs()
             time.sleep(1)
 
     def stop(self):
@@ -53,6 +72,55 @@ class SchedulerManager:
         if self.thread:
             self.thread.join()
             logger.info("Scheduler stopped.")
+
+    def _check_daily_jobs(self):
+        """Checks and runs timezone-aware daily jobs."""
+        # Get current UTC time once per iteration
+        now_utc = datetime.now(timezone.utc)
+        
+        # DEBUG: Heartbeat every 30 seconds to verify scheduler is alive
+        if now_utc.second % 30 == 0:
+            logger.info(f"⏰ Scheduler Heartbeat: UTC is {now_utc.strftime('%H:%M:%S')}. Monitoring {len(self.daily_jobs)} jobs.")
+        
+        for job in self.daily_jobs:
+            try:
+                if job['timezone'] == 'UTC':
+                    tz = timezone.utc
+                else:
+                    tz = ZoneInfo(job['timezone'])
+                # Convert UTC now to user's timezone
+                now_tz = now_utc.astimezone(tz)
+                
+                target_hour, target_minute = map(int, job['time'].split(':'))
+                
+                # DEBUG: Log if we are in the same hour, to see if minutes are mismatching
+                if now_utc.second == 0 and now_tz.hour == target_hour:
+                     logger.info(f"🔍 Checking Job '{job['city']}': Target {job['time']} vs Current {now_tz.strftime('%H:%M')} (TZ: {job['timezone']})")
+
+                # Check if times match (ignoring seconds)
+                if now_tz.hour == target_hour and now_tz.minute == target_minute:
+                    today_str = now_tz.strftime("%Y-%m-%d")
+                    
+                    # Ensure it runs only once per day
+                    if job.get('last_run') != today_str:
+                        logger.info(f"✅ Triggering job for {job['city']} at {now_tz.strftime('%H:%M')}!")
+                        job['last_run'] = today_str
+                        
+                        # Update persistence data to match runtime data
+                        str_chat_id = str(job['chat_id'])
+                        if str_chat_id in self.loaded_data:
+                            for p_job in self.loaded_data[str_chat_id]:
+                                if p_job.get('city') == job['city'] and p_job.get('time') == job['time']:
+                                    p_job['last_run'] = today_str
+                                    break
+                        self._save_persistence()
+
+                        # Run the job function
+                        threading.Thread(target=job['func']).start()
+                    elif now_utc.second == 0:
+                        logger.info(f"ℹ️ Job for {job['city']} already ran today ({today_str}).")
+            except Exception as e:
+                logger.error(f"Error checking daily job for {job.get('chat_id')}: {e}")
 
     def load_jobs(self, job_func):
         """Loads and schedules jobs from the persistence file."""
@@ -66,12 +134,15 @@ class SchedulerManager:
             for job_data in job_list:
                 city = job_data.get("city")
                 time_str = job_data.get("time")
+                timezone_str = job_data.get("timezone", "UTC")
+                last_run = job_data.get("last_run")
+                
                 if city and time_str:
-                    if self._schedule_internal(chat_id, city, time_str, job_func):
+                    if self._schedule_internal(chat_id, city, time_str, job_func, timezone_str, last_run):
                         count += 1
         logger.info(f"Restored {count} jobs from persistence.")
 
-    def _schedule_internal(self, chat_id, city, time_str, job_func):
+    def _schedule_internal(self, chat_id, city, time_str, job_func, timezone_str="UTC", last_run=None):
         try:
             def job_wrapper():
                 logger.info(f"Running scheduled job for {chat_id} - {city}")
@@ -80,49 +151,47 @@ class SchedulerManager:
                 except Exception as e:
                     logger.error(f"Error executing job for {chat_id}: {e}")
 
-            # Schedule the job
-            # schedule.every().day.at(time_str) expects HH:MM or HH:MM:SS
-            tag = f"{chat_id}_{city}"
-            job = schedule.every().day.at(time_str).do(job_wrapper).tag(tag)
+            # Add to internal list instead of schedule library
+            job_entry = {
+                'chat_id': chat_id,
+                'city': city,
+                'time': time_str,
+                'timezone': timezone_str,
+                'func': job_wrapper,
+                'last_run': last_run
+            }
             
-            if chat_id not in self.jobs:
-                self.jobs[chat_id] = []
-            self.jobs[chat_id].append(job)
+            self.daily_jobs.append(job_entry)
             return True
         except Exception as e:
             logger.error(f"Error scheduling job internal: {e}")
             return False
 
-    def add_daily_job(self, chat_id, city, time_str, job_func):
+    def add_daily_job(self, chat_id, city, time_str, job_func, timezone_str="UTC"):
         """
         Schedules a daily job for a specific chat and city at a given time.
         """
-        if self._schedule_internal(chat_id, city, time_str, job_func):
+        if self._schedule_internal(chat_id, city, time_str, job_func, timezone_str):
             # Persistence logic
             str_chat_id = str(chat_id)
             if str_chat_id not in self.loaded_data:
                 self.loaded_data[str_chat_id] = []
             
-            # Check for duplicates
-            exists = False
-            for job in self.loaded_data[str_chat_id]:
-                if job.get('city') == city and job.get('time') == time_str:
-                    exists = True
-                    break
+            # Remove existing job for same city if exists (update)
+            self.loaded_data[str_chat_id] = [
+                job for job in self.loaded_data[str_chat_id] 
+                if job.get('city') != city
+            ]
             
-            if not exists:
-                self.loaded_data[str_chat_id].append({"city": city, "time": time_str})
-                self._save_persistence()
+            self.loaded_data[str_chat_id].append({"city": city, "time": time_str, "timezone": timezone_str, "last_run": None})
+            self._save_persistence()
             
-            logger.info(f"Scheduled daily news for {chat_id} in {city} at {time_str}")
+            logger.info(f"Scheduled daily news for {chat_id} in {city} at {time_str} ({timezone_str})")
             return True
         return False
 
     def remove_daily_job(self, chat_id, city):
         """Removes all daily jobs for a specific city and chat_id."""
-        tag = f"{chat_id}_{city}"
-        schedule.clear(tag)
-        
         # Update persistence
         str_chat_id = str(chat_id)
         removed = False
@@ -136,9 +205,8 @@ class SchedulerManager:
                 self._save_persistence()
                 removed = True
         
-        # Update runtime jobs list
-        if chat_id in self.jobs:
-            self.jobs[chat_id] = [job for job in self.jobs[chat_id] if tag not in job.tags]
+        # Update runtime jobs list (daily_jobs)
+        self.daily_jobs = [job for job in self.daily_jobs if not (job['chat_id'] == chat_id and job['city'] == city)]
 
         if removed:
             logger.info(f"Removed daily news for {chat_id} in {city}")
@@ -175,6 +243,24 @@ def handle_dailynews_logic(chat_id, args, job_callback):
     if len(args) < 2:
         return False, None, None
 
+    # Check for timezone in the last argument
+    timezone_str = "UTC"
+    possible_tz = args[-1]
+    
+    try:
+        if possible_tz == "UTC":
+            timezone_str = possible_tz
+            args = args[:-1]
+        else:
+            ZoneInfo(possible_tz)
+            timezone_str = possible_tz
+            args = args[:-1] # Pop timezone
+    except Exception:
+        pass # Last arg is not a timezone
+
+    if len(args) < 2:
+        return False, None, None
+
     raw_time = args[-1]
     city = " ".join(args[:-1])
     
@@ -183,7 +269,7 @@ def handle_dailynews_logic(chat_id, args, job_callback):
     if not formatted_time:
         return False, None, None
 
-    success = scheduler_manager.add_daily_job(chat_id, city, formatted_time, job_callback)
+    success = scheduler_manager.add_daily_job(chat_id, city, formatted_time, job_callback, timezone_str)
     
     if success:
         return True, city, formatted_time

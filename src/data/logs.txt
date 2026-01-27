@@ -1,0 +1,26 @@
+[2026-01-27 01:05:56.821000] Fetching news for city: Technology.
+[2026-01-27 01:05:57.748406] Found 10 articles for city: Technology.
+[2026-01-27 01:05:57.748956] TOTAL RESULTS for Technology: 10
+[2026-01-27 01:05:57.750144] Generating audio from script.
+[2026-01-27 01:06:01.060591] Audio generated at output.ogg
+[2026-01-27 01:06:01.062525] Bot started.
+[2026-01-27 01:07:44.573801] Fetching news for city: Technology.
+[2026-01-27 01:07:45.256408] Found 10 articles for city: Technology.
+[2026-01-27 01:07:45.256969] TOTAL RESULTS for Technology: 10
+[2026-01-27 01:07:45.258347] Generating audio from script.
+[2026-01-27 01:07:48.151615] Audio generated at output.ogg
+[2026-01-27 01:07:48.153380] Bot started.
+[2026-01-27 01:08:08.429854] Getting profile for user 1331489813.
+[2026-01-27 01:08:08.430738] Data file not found. Creating 'data\user_preferences.json'.
+[2026-01-27 01:08:08.431371] Loading user profiles.
+[2026-01-27 01:08:08.431783] No profile found for user 1331489813.
+[2026-01-27 01:08:08.432052] User 1331489813 requested help in es.
+[2026-01-27 01:08:18.173363] Getting profile for user 1331489813.
+[2026-01-27 01:08:18.173932] Loading user profiles.
+[2026-01-27 01:08:18.174464] No profile found for user 1331489813.
+[2026-01-27 01:13:29.885867] Fetching news for city: Technology.
+[2026-01-27 01:13:30.770890] Found 10 articles for city: Technology.
+[2026-01-27 01:13:30.771626] TOTAL RESULTS for Technology: 10
+[2026-01-27 01:13:30.773796] Generating audio from script.
+[2026-01-27 01:13:33.914017] Audio generated at output.ogg
+[2026-01-27 01:13:33.915702] Bot started.

@@ -8,6 +8,7 @@ $dotenv->load();
 $users_file = '../data/user_preferences.json';
 $logs_file = '../data/logs.txt';
 $bot_file = '../src/bot.py';
+$scheduled_jobs_file = '../data/scheduled_jobs.json';
 
 
 // Get user count
@@ -66,6 +67,33 @@ if (isset($_POST['clear_logs'])) {
     exit();
 }
 
+// Handle Scheduled Jobs Actions
+if (isset($_POST['update_job']) || isset($_POST['delete_job'])) {
+    if (file_exists($scheduled_jobs_file)) {
+        $jobs_data = json_decode(file_get_contents($scheduled_jobs_file), true);
+        if ($jobs_data) {
+            $chat_id = $_POST['chat_id'];
+            $job_index = $_POST['job_index'];
+
+            if (isset($jobs_data[$chat_id][$job_index])) {
+                if (isset($_POST['delete_job'])) {
+                    array_splice($jobs_data[$chat_id], $job_index, 1);
+                    if (empty($jobs_data[$chat_id])) {
+                        unset($jobs_data[$chat_id]);
+                    }
+                } elseif (isset($_POST['update_job'])) {
+                    $jobs_data[$chat_id][$job_index]['city'] = $_POST['city'];
+                    $jobs_data[$chat_id][$job_index]['time'] = $_POST['time'];
+                    $jobs_data[$chat_id][$job_index]['timezone'] = $_POST['timezone'];
+                }
+                file_put_contents($scheduled_jobs_file, json_encode($jobs_data, JSON_PRETTY_PRINT));
+            }
+        }
+    }
+    header("Location: index.php");
+    exit();
+}
+
 // Send global message
 if (isset($_POST['send_message']) && !empty($_POST['message'])) {
     $message = $_POST['message'];
@@ -100,6 +128,27 @@ if (isset($_POST['send_message']) && !empty($_POST['message'])) {
     header("Location: index.php");
     exit();
 }
+
+// Run diagnostics
+$diagnostics_output = '';
+if (isset($_POST['run_diagnostics'])) {
+    $pythonScript = realpath(__DIR__ . '/../src/check_services.py');
+    if ($pythonScript && file_exists($pythonScript)) {
+        $cmd = "python " . escapeshellarg($pythonScript) . " 2>&1";
+        $diagnostics_output = shell_exec($cmd);
+    } else {
+        $diagnostics_output = "Error: Could not locate check_services.py";
+    }
+}
+
+// Get Scheduled Jobs
+$scheduled_jobs = [];
+if (file_exists($scheduled_jobs_file)) {
+    $data = json_decode(file_get_contents($scheduled_jobs_file), true);
+    if ($data) {
+        $scheduled_jobs = $data;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -132,6 +181,60 @@ if (isset($_POST['send_message']) && !empty($_POST['message'])) {
                 <textarea name="message" rows="4" placeholder="Enter your message here..."></textarea>
                 <button type="submit" name="send_message">Send Message</button>
             </form>
+        </div>
+
+        <div class="card">
+            <h2>Service Diagnostics</h2>
+            <form action="index.php" method="post">
+                <button type="submit" name="run_diagnostics" class="diagnostics-btn">Run System Checks</button>
+            </form>
+            <?php if ($diagnostics_output): ?>
+                <div class="diagnostics-output">
+                    <?php echo htmlspecialchars($diagnostics_output); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="card">
+            <h2>Scheduled Jobs</h2>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chat ID</th>
+                            <th>City</th>
+                            <th>Time</th>
+                            <th>Timezone</th>
+                            <th>Last Run</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($scheduled_jobs as $chat_id => $jobs): ?>
+                            <?php foreach ($jobs as $index => $job): ?>
+                                <tr>
+                                    <form action="index.php" method="post">
+                                        <td><?php echo htmlspecialchars($chat_id); ?></td>
+                                        <td><input type="text" name="city" value="<?php echo htmlspecialchars($job['city']); ?>"></td>
+                                        <td><input type="text" name="time" value="<?php echo htmlspecialchars($job['time']); ?>"></td>
+                                        <td><input type="text" name="timezone" value="<?php echo htmlspecialchars($job['timezone'] ?? 'UTC'); ?>"></td>
+                                        <td><?php echo htmlspecialchars($job['last_run'] ?? '-'); ?></td>
+                                        <td>
+                                            <input type="hidden" name="chat_id" value="<?php echo htmlspecialchars($chat_id); ?>">
+                                            <input type="hidden" name="job_index" value="<?php echo $index; ?>">
+                                            <button type="submit" name="update_job" class="btn-small">Save</button>
+                                            <button type="submit" name="delete_job" class="btn-small btn-danger">Delete</button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                        <?php if (empty($scheduled_jobs)): ?>
+                            <tr><td colspan="6" style="text-align:center;">No scheduled jobs found.</td></tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="card">

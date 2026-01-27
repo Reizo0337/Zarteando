@@ -6,13 +6,14 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 
 from news import get_news
-from content import podcast_script, select_and_adapt_news, daily_summary, daily_news_script
+from content import podcast_script, select_and_adapt_news, daily_summary, daily_news_script, client
 from scheduler import scheduler_manager, handle_dailynews_logic
 from tts import generate_tts as text_to_audio
 from profile import set_users_interests, get_user_profile, set_users_lang, get_user_lang
 from config import AVAILABLE_INTERESTS, AVAILABLE_LANGS
 from utils import send_log
 from translations import get_translation
+from diagnostics import print_diagnostics
 
 # Store temporary selections
 user_temp_selection = {}
@@ -327,5 +328,6 @@ app.add_handler(CommandHandler("language", language_command))
 app.add_handler(CommandHandler("configure", configure))
 app.add_handler(CallbackQueryHandler(callback_handler))
 
+print_diagnostics()
 send_log(datetime.now(), "Bot started.")
 app.run_polling()

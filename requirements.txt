@@ -3,3 +3,4 @@ ollama
 deep-translator
 pathlib
 python-dotenv
+shedule
