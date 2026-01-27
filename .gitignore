@@ -1,9 +1,7 @@
-
-# Environment variables
 .env
 *.mp3
 *.ogg
 __pycache__
 src/data/*
 vendor
-src/data/logs.txt
+src/data/

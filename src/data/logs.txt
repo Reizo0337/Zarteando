@@ -24,3 +24,38 @@
 [2026-01-27 01:13:30.773796] Generating audio from script.
 [2026-01-27 01:13:33.914017] Audio generated at output.ogg
 [2026-01-27 01:13:33.915702] Bot started.
+[2026-01-27 01:30:29.052039] Getting profile for user 1331489813.
+[2026-01-27 01:30:29.052564] Loading user profiles.
+[2026-01-27 01:30:29.052975] No profile found for user 1331489813.
+[2026-01-27 01:30:29.178483] User 1331489813 sent callback data: interest:politica
+[2026-01-27 01:30:29.811299] Getting profile for user 1331489813.
+[2026-01-27 01:30:29.811819] Loading user profiles.
+[2026-01-27 01:30:29.812205] No profile found for user 1331489813.
+[2026-01-27 01:30:29.859077] User 1331489813 sent callback data: interest:economia
+[2026-01-27 01:30:30.209082] Getting profile for user 1331489813.
+[2026-01-27 01:30:30.209587] Loading user profiles.
+[2026-01-27 01:30:30.209984] No profile found for user 1331489813.
+[2026-01-27 01:30:30.254064] User 1331489813 sent callback data: interest:tecnologia
+[2026-01-27 01:30:30.597400] Getting profile for user 1331489813.
+[2026-01-27 01:30:30.597893] Loading user profiles.
+[2026-01-27 01:30:30.598282] No profile found for user 1331489813.
+[2026-01-27 01:30:30.641175] User 1331489813 sent callback data: interest:cultura
+[2026-01-27 01:30:31.370473] Getting profile for user 1331489813.
+[2026-01-27 01:30:31.371156] Loading user profiles.
+[2026-01-27 01:30:31.371626] No profile found for user 1331489813.
+[2026-01-27 01:30:31.427191] User 1331489813 sent callback data: interest:salud
+[2026-01-27 01:30:35.071850] Getting profile for user 1331489813.
+[2026-01-27 01:30:35.072362] Loading user profiles.
+[2026-01-27 01:30:35.072770] No profile found for user 1331489813.
+[2026-01-27 01:30:35.119047] User 1331489813 sent callback data: interest:ci
+[2026-01-27 01:30:35.343361] Getting profile for user 1331489813.
+[2026-01-27 01:30:35.344158] Loading user profiles.
+[2026-01-27 01:30:35.344554] No profile found for user 1331489813.
+[2026-01-27 01:30:35.388048] User 1331489813 sent callback data: save_interests
+[2026-01-27 01:30:35.388501] Setting interests for user 1331489813: ['politica', 'economia', 'tecnologia', 'cultura', 'salud', 'ci']
+[2026-01-27 01:30:35.388866] Loading user profiles.
+[2026-01-27 01:30:35.389311] New user 1331489813. Creating profile.
+[2026-01-27 01:30:35.389598] Saving user profiles.
+[2026-01-27 01:30:35.390147] User profiles saved successfully.
+[2026-01-27 01:30:35.390529] Interests for user 1331489813 updated.
+[2026-01-27 01:30:35.390858] User 1331489813 saved interests: ['politica', 'economia', 'tecnologia', 'cultura', 'salud', 'ci'].

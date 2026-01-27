@@ -1,21 +1,23 @@
-from ollama import Client
+from ollama import AsyncClient
+import asyncio
 from datetime import datetime
 from utils import send_log
 from translations import get_translation
 from deep_translator import GoogleTranslator
 
-client = Client()
+client = AsyncClient()
 
-def translate_prompt(prompt, lang):
+async def translate_prompt(prompt, lang):
     if lang == "en":
         return prompt  # No need to translate if it's already in English
     try:
-        return GoogleTranslator(source='auto', target=lang).translate(prompt)
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(None, lambda: GoogleTranslator(source='auto', target=lang).translate(prompt))
     except Exception as e:
         send_log(datetime.now(), f"Error translating prompt to {lang}: {e}")
         return prompt # Return original prompt on error
 
-def podcast_script(city, filtered_news_text, lang="es"):
+async def podcast_script(city, filtered_news_text, lang="es"):
     send_log(datetime.now(), f"Generating podcast script for city: {city} in {lang}.")
 
     base_prompt = f"""
@@ -45,10 +47,10 @@ def podcast_script(city, filtered_news_text, lang="es"):
         - El output siempre tiene que tener el idioma del usuario. (Español o ingles es/en)
         """
     
-    prompt = translate_prompt(base_prompt, lang)
+    prompt = await translate_prompt(base_prompt, lang)
 
     try:
-        response = client.generate(
+        response = await client.generate(
             model="gemma3:4b",
             prompt=prompt,
         )
@@ -60,14 +62,14 @@ def podcast_script(city, filtered_news_text, lang="es"):
         return get_translation(lang, "error_generating_script", city=city)
 
 
-def daily_summary(city, news, lang="es"):
+async def daily_summary(city, news, lang="es"):
     send_log(datetime.now(), f"Generating daily summary for city: {city} in {lang}.")
     
     base_prompt = f"Summarize today's most important news in {city}:\n{news}"
-    prompt = translate_prompt(base_prompt, lang)
+    prompt = await translate_prompt(base_prompt, lang)
 
     try:
-        response = client.generate(
+        response = await client.generate(
             model="gemma3:4b",
             prompt=prompt,
         )
@@ -78,7 +80,7 @@ def daily_summary(city, news, lang="es"):
         send_log(datetime.now(), f"Error generating daily summary for city {city} in {lang}: {e}")
         return get_translation(lang, "error_generating_summary", city=city)
 
-def select_and_adapt_news(city, news, user_interests, lang="es"):
+async def select_and_adapt_news(city, news, user_interests, lang="es"):
     send_log(datetime.now(), f"Selecting and adapting news for city: {city} with interests: {user_interests} in {lang}.")
     
     news_block = "\n\n".join(
@@ -103,10 +105,10 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
         {news_block}
         """
     
-    prompt = translate_prompt(base_prompt, lang)
+    prompt = await translate_prompt(base_prompt, lang)
 
     try:
-        response = client.generate(
+        response = await client.generate(
             model="gemma3:4b",
             prompt=prompt
         )
@@ -117,7 +119,7 @@ def select_and_adapt_news(city, news, user_interests, lang="es"):
         send_log(datetime.now(), f"Error selecting and adapting news for city {city} in {lang}: {e}")
         return get_translation(lang, "error_selecting_news", city=city)
 
-def daily_news_script(city, filtered_news_text, lang="es"):
+async def daily_news_script(city, filtered_news_text, lang="es"):
     send_log(datetime.now(), f"Generating daily news script for city: {city} in {lang}.")
 
     base_prompt = f"""
@@ -143,10 +145,10 @@ def daily_news_script(city, filtered_news_text, lang="es"):
         - Output en el idioma del usuario.
         """
     
-    prompt = translate_prompt(base_prompt, lang)
+    prompt = await translate_prompt(base_prompt, lang)
 
     try:
-        response = client.generate(
+        response = await client.generate(
             model="gemma3:4b",
             prompt=prompt,
         )

@@ -1,5 +1,6 @@
 import requests
 import subprocess
+import asyncio
 from datetime import datetime
 from utils import send_log
 from murf import Murf
@@ -14,7 +15,7 @@ client = Murf(
     api_key=MURF_KEY,
 )
 
-def generate_tts(script, output_path="output.ogg"):
+def _generate_tts_sync(script, output_path="output.ogg"):
     send_log(datetime.now(), "Generating audio from script.")
 
     try:
@@ -45,3 +46,7 @@ def generate_tts(script, output_path="output.ogg"):
     except Exception as e:
         send_log(datetime.now(), f"Error generating audio: {e}")
         return None
+
+async def generate_tts(script, output_path="output.ogg"):
+    loop = asyncio.get_running_loop()
+    return await loop.run_in_executor(None, _generate_tts_sync, script, output_path)
