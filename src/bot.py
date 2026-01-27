@@ -4,6 +4,7 @@ import asyncio
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
+from telegram.error import BadRequest
 
 from news import get_news
 from content import podcast_script, select_and_adapt_news, daily_summary, daily_news_script, client
@@ -17,6 +18,19 @@ from diagnostics import print_diagnostics
 
 # Store temporary selections
 user_temp_selection = {}
+
+# /start
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    user_lang = get_user_lang(user_id)
+    
+    # Initialize onboarding flow
+    user_temp_selection[user_id] = {'lang': user_lang, 'onboarding': True}
+    
+    await update.message.reply_text(
+        get_translation(user_lang, "welcome_message"),
+        reply_markup=language_keyboard(user_lang, user_lang)
+    )
 
 # /help
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -269,19 +283,36 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_temp_selection[user_id]['lang'] = lang
         # Get the language of the user who is interacting for the keyboard language
         interaction_lang = user_temp_selection[user_id].get('lang', user_lang)
-        await query.edit_message_reply_markup(
-            reply_markup=language_keyboard(interaction_lang, lang)
-        )
+        try:
+            await query.edit_message_reply_markup(
+                reply_markup=language_keyboard(interaction_lang, lang)
+            )
+        except BadRequest as e:
+            if "Message is not modified" not in str(e):
+                raise
 
     elif data == "save_lang":
         selected_lang = user_temp_selection[user_id].get('lang', user_lang)
         set_users_lang(user_id, selected_lang)
         send_log(datetime.now(), f"User {user_id} saved language: {selected_lang}.")
-        await query.edit_message_text(
-            get_translation(selected_lang, "language_saved", language_name=selected_lang.upper())
-        )
-        if user_id in user_temp_selection:
-            del user_temp_selection[user_id]
+        
+        # Check if this is part of onboarding
+        if user_temp_selection[user_id].get('onboarding'):
+            # Proceed to interests configuration
+            profile = get_user_profile(user_id)
+            user_interests = profile.get("interests", []) if profile else []
+            user_temp_selection[user_id]['interests'] = user_interests
+            
+            await query.edit_message_text(
+                get_translation(selected_lang, "lets_configure_interests"),
+                reply_markup=interests_keyboard(selected_lang, user_interests)
+            )
+        else:
+            await query.edit_message_text(
+                get_translation(selected_lang, "language_saved", language_name=selected_lang.upper())
+            )
+            if user_id in user_temp_selection:
+                del user_temp_selection[user_id]
 
     # Interest selection
     elif data.startswith("interest:"):
@@ -292,17 +323,28 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             selected.append(interest)
         user_temp_selection[user_id]['interests'] = selected
-        await query.edit_message_reply_markup(
-            reply_markup=interests_keyboard(user_lang, selected)
-        )
+        try:
+            await query.edit_message_reply_markup(
+                reply_markup=interests_keyboard(user_lang, selected)
+            )
+        except BadRequest as e:
+            if "Message is not modified" not in str(e):
+                raise
 
     elif data == "save_interests":
         selected_interests = user_temp_selection[user_id].get('interests', [])
         set_users_interests(user_id, selected_interests)
         send_log(datetime.now(), f"User {user_id} saved interests: {selected_interests}.")
-        await query.edit_message_text(
-            get_translation(user_lang, "interests_saved") + ", ".join(selected_interests)
-        )
+        
+        # Refresh lang in case it changed during onboarding
+        current_lang = get_user_lang(user_id)
+        
+        if user_temp_selection[user_id].get('onboarding'):
+            await query.edit_message_text(get_translation(current_lang, "setup_complete"))
+        else:
+            await query.edit_message_text(
+                get_translation(current_lang, "interests_saved") + ", ".join(selected_interests)
+            )
         if user_id in user_temp_selection:
             del user_temp_selection[user_id]
 
@@ -319,6 +361,7 @@ load_dotenv()
 
 app = ApplicationBuilder().token(os.getenv("TELEGRAM_BOT_TOKEN")).post_init(post_init).build()
 
+app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("help", help_command))
 app.add_handler(CommandHandler("podcast", podcast))
 app.add_handler(CommandHandler("resumen", resumen))

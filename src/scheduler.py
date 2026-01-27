@@ -41,9 +41,16 @@ class SchedulerManager:
         if os.path.exists(self.persistence_file):
             try:
                 with open(self.persistence_file, 'r') as f:
-                    return json.load(f)
+                    data = json.load(f)
+                if not isinstance(data, dict):
+                    logger.warning(f"Persistence file has incorrect format (expected dict, got {type(data)}). Ignoring old data.")
+                    return {}
+                return data
+            except json.JSONDecodeError:
+                logger.warning("Persistence file is empty or malformed. Starting fresh.")
+                return {}
             except Exception as e:
-                logger.error(f"Error loading persistence file: {e}")
+                logger.error(f"An unexpected error occurred while loading persistence file: {e}")
                 return {}
         return {}
 

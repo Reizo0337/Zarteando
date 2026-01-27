@@ -31,7 +31,10 @@ TRANSLATIONS = {
         "save": "💾 Guardar",
         "error_generating_script": "Error al generar el guion para {city}.",
         "error_selecting_news": "Error al seleccionar las noticias para {city}.",
-        "error_generating_summary": "Error al generar el resumen para {city}."
+        "error_generating_summary": "Error al generar el resumen para {city}.",
+        "welcome_message": "👋 ¡Bienvenido a NewsPodBot!\n\nVamos a configurar tu perfil para darte las mejores noticias.\n\nPrimero, selecciona tu idioma:",
+        "lets_configure_interests": "✅ Idioma guardado.\n\nAhora selecciona tus temas de interés para personalizar las noticias:",
+        "setup_complete": "✅ ¡Configuración completa!\n\nYa puedes usar /podcast <ciudad> para escuchar las noticias."
     },
     "en": {
         "help_message": "Available commands: \n"
@@ -63,7 +66,10 @@ TRANSLATIONS = {
         "save": "💾 Save",
         "error_generating_script": "Error generating script for {city}.",
         "error_selecting_news": "Error selecting news for {city}.",
-        "error_generating_summary": "Error generating summary for {city}."
+        "error_generating_summary": "Error generating summary for {city}.",
+        "welcome_message": "👋 Welcome to NewsPodBot!\n\nLet's set up your profile to get the best news.\n\nFirst, select your language:",
+        "lets_configure_interests": "✅ Language saved.\n\nNow select your interests to customize the news:",
+        "setup_complete": "✅ Setup complete!\n\nYou can now use /podcast <city> to listen to the news."
     }
 }
 

@@ -1,61 +1,12 @@
-[2026-01-27 01:05:56.821000] Fetching news for city: Technology.
-[2026-01-27 01:05:57.748406] Found 10 articles for city: Technology.
-[2026-01-27 01:05:57.748956] TOTAL RESULTS for Technology: 10
-[2026-01-27 01:05:57.750144] Generating audio from script.
-[2026-01-27 01:06:01.060591] Audio generated at output.ogg
-[2026-01-27 01:06:01.062525] Bot started.
-[2026-01-27 01:07:44.573801] Fetching news for city: Technology.
-[2026-01-27 01:07:45.256408] Found 10 articles for city: Technology.
-[2026-01-27 01:07:45.256969] TOTAL RESULTS for Technology: 10
-[2026-01-27 01:07:45.258347] Generating audio from script.
-[2026-01-27 01:07:48.151615] Audio generated at output.ogg
-[2026-01-27 01:07:48.153380] Bot started.
-[2026-01-27 01:08:08.429854] Getting profile for user 1331489813.
-[2026-01-27 01:08:08.430738] Data file not found. Creating 'data\user_preferences.json'.
-[2026-01-27 01:08:08.431371] Loading user profiles.
-[2026-01-27 01:08:08.431783] No profile found for user 1331489813.
-[2026-01-27 01:08:08.432052] User 1331489813 requested help in es.
-[2026-01-27 01:08:18.173363] Getting profile for user 1331489813.
-[2026-01-27 01:08:18.173932] Loading user profiles.
-[2026-01-27 01:08:18.174464] No profile found for user 1331489813.
-[2026-01-27 01:13:29.885867] Fetching news for city: Technology.
-[2026-01-27 01:13:30.770890] Found 10 articles for city: Technology.
-[2026-01-27 01:13:30.771626] TOTAL RESULTS for Technology: 10
-[2026-01-27 01:13:30.773796] Generating audio from script.
-[2026-01-27 01:13:33.914017] Audio generated at output.ogg
-[2026-01-27 01:13:33.915702] Bot started.
-[2026-01-27 01:30:29.052039] Getting profile for user 1331489813.
-[2026-01-27 01:30:29.052564] Loading user profiles.
-[2026-01-27 01:30:29.052975] No profile found for user 1331489813.
-[2026-01-27 01:30:29.178483] User 1331489813 sent callback data: interest:politica
-[2026-01-27 01:30:29.811299] Getting profile for user 1331489813.
-[2026-01-27 01:30:29.811819] Loading user profiles.
-[2026-01-27 01:30:29.812205] No profile found for user 1331489813.
-[2026-01-27 01:30:29.859077] User 1331489813 sent callback data: interest:economia
-[2026-01-27 01:30:30.209082] Getting profile for user 1331489813.
-[2026-01-27 01:30:30.209587] Loading user profiles.
-[2026-01-27 01:30:30.209984] No profile found for user 1331489813.
-[2026-01-27 01:30:30.254064] User 1331489813 sent callback data: interest:tecnologia
-[2026-01-27 01:30:30.597400] Getting profile for user 1331489813.
-[2026-01-27 01:30:30.597893] Loading user profiles.
-[2026-01-27 01:30:30.598282] No profile found for user 1331489813.
-[2026-01-27 01:30:30.641175] User 1331489813 sent callback data: interest:cultura
-[2026-01-27 01:30:31.370473] Getting profile for user 1331489813.
-[2026-01-27 01:30:31.371156] Loading user profiles.
-[2026-01-27 01:30:31.371626] No profile found for user 1331489813.
-[2026-01-27 01:30:31.427191] User 1331489813 sent callback data: interest:salud
-[2026-01-27 01:30:35.071850] Getting profile for user 1331489813.
-[2026-01-27 01:30:35.072362] Loading user profiles.
-[2026-01-27 01:30:35.072770] No profile found for user 1331489813.
-[2026-01-27 01:30:35.119047] User 1331489813 sent callback data: interest:ci
-[2026-01-27 01:30:35.343361] Getting profile for user 1331489813.
-[2026-01-27 01:30:35.344158] Loading user profiles.
-[2026-01-27 01:30:35.344554] No profile found for user 1331489813.
-[2026-01-27 01:30:35.388048] User 1331489813 sent callback data: save_interests
-[2026-01-27 01:30:35.388501] Setting interests for user 1331489813: ['politica', 'economia', 'tecnologia', 'cultura', 'salud', 'ci']
-[2026-01-27 01:30:35.388866] Loading user profiles.
-[2026-01-27 01:30:35.389311] New user 1331489813. Creating profile.
-[2026-01-27 01:30:35.389598] Saving user profiles.
-[2026-01-27 01:30:35.390147] User profiles saved successfully.
-[2026-01-27 01:30:35.390529] Interests for user 1331489813 updated.
-[2026-01-27 01:30:35.390858] User 1331489813 saved interests: ['politica', 'economia', 'tecnologia', 'cultura', 'salud', 'ci'].
+[2026-01-27 01:59:30.586712] Fetching news for city: Technology.
+[2026-01-27 01:59:31.443514] Found 10 articles for city: Technology.
+[2026-01-27 01:59:31.443980] TOTAL RESULTS for Technology: 10
+[2026-01-27 01:59:31.445540] Generating audio from script.
+[2026-01-27 01:59:34.440797] Audio generated at output.ogg
+[2026-01-27 01:59:34.444725] Bot started.
+[2026-01-27 02:00:54.427719] Fetching news for city: Technology.
+[2026-01-27 02:00:55.184126] Found 10 articles for city: Technology.
+[2026-01-27 02:00:55.184845] TOTAL RESULTS for Technology: 10
+[2026-01-27 02:00:55.186972] Generating audio from script.
+[2026-01-27 02:00:58.078193] Audio generated at output.ogg
+[2026-01-27 02:00:58.080995] Bot started.
