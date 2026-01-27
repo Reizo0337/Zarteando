@@ -1,0 +1,151 @@
+[2026-01-27 15:30:26.171482] Fetching news for city: Technology.
+[2026-01-27 15:30:26.925661] Found 10 articles for city: Technology.
+[2026-01-27 15:30:26.926467] TOTAL RESULTS for Technology: 10
+[2026-01-27 15:30:26.929929] Generating audio from script.
+[2026-01-27 15:30:29.785931] Audio generated at output.ogg
+[2026-01-27 15:30:29.790239] Bot started.
+[2026-01-27 15:31:53.632938] Getting profile for user 1331489813.
+[2026-01-27 15:31:53.633927] Data file not found. Creating 'data\user_preferences.json'.
+[2026-01-27 15:31:53.634940] Loading user profiles.
+[2026-01-27 15:31:53.635551] No profile found for user 1331489813.
+[2026-01-27 15:32:00.059330] Getting profile for user 1331489813.
+[2026-01-27 15:32:00.059791] Loading user profiles.
+[2026-01-27 15:32:00.060863] No profile found for user 1331489813.
+[2026-01-27 15:32:00.061232] Executing daily news for 1331489813 in Zaragoza (es).
+[2026-01-27 15:32:00.061657] Fetching news for city: Zaragoza.
+[2026-01-27 15:32:00.709323] Found 10 articles for city: Zaragoza.
+[2026-01-27 15:32:00.709935] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 15:32:00.711441] Getting profile for user 1331489813.
+[2026-01-27 15:32:00.711801] Loading user profiles.
+[2026-01-27 15:32:00.712242] No profile found for user 1331489813.
+[2026-01-27 15:32:00.712541] Selecting and adapting news for city: Zaragoza with interests: [] in es.
+[2026-01-27 15:32:27.383626] Getting profile for user 1331489813.
+[2026-01-27 15:32:27.384707] Loading user profiles.
+[2026-01-27 15:32:27.385329] No profile found for user 1331489813.
+[2026-01-27 15:32:27.385688] User 1331489813 requested help in es.
+[2026-01-27 15:32:58.803883] Successfully selected and adapted news for city: Zaragoza in es.
+[2026-01-27 15:32:58.804423] Generating daily news script for city: Zaragoza in es.
+[2026-01-27 15:33:27.394261] Successfully generated daily news script for city: Zaragoza in es.
+[2026-01-27 15:33:27.394825] Generating audio from script.
+[2026-01-27 15:33:34.732691] Audio generated at output.ogg
+[2026-01-27 15:33:35.679517] Sent daily podcast to 1331489813.
+[2026-01-27 16:46:23.136812] Fetching news for city: Technology.
+[2026-01-27 16:46:23.899984] Found 10 articles for city: Technology.
+[2026-01-27 16:46:23.900622] TOTAL RESULTS for Technology: 10
+[2026-01-27 16:46:23.902162] Generating audio from script.
+[2026-01-27 16:46:26.806903] Audio generated at output.ogg
+[2026-01-27 16:46:26.811852] Bot started.
+[2026-01-27 16:46:57.081379] Getting profile for user 1331489813.
+[2026-01-27 16:46:57.082151] Loading user profiles.
+[2026-01-27 16:46:57.082716] No profile found for user 1331489813.
+[2026-01-27 16:47:00.576949] Getting profile for user 1331489813.
+[2026-01-27 16:47:00.577527] Loading user profiles.
+[2026-01-27 16:47:00.577970] No profile found for user 1331489813.
+[2026-01-27 16:47:00.644522] User 1331489813 sent callback data: language:en
+[2026-01-27 16:47:01.316599] Getting profile for user 1331489813.
+[2026-01-27 16:47:01.317162] Loading user profiles.
+[2026-01-27 16:47:01.317719] No profile found for user 1331489813.
+[2026-01-27 16:47:01.369546] User 1331489813 sent callback data: language:fr
+[2026-01-27 16:47:02.091988] Getting profile for user 1331489813.
+[2026-01-27 16:47:02.092536] Loading user profiles.
+[2026-01-27 16:47:02.093043] No profile found for user 1331489813.
+[2026-01-27 16:47:02.145499] User 1331489813 sent callback data: language:de
+[2026-01-27 16:47:04.956560] Getting profile for user 1331489813.
+[2026-01-27 16:47:04.957178] Loading user profiles.
+[2026-01-27 16:47:04.957608] No profile found for user 1331489813.
+[2026-01-27 16:47:05.030398] User 1331489813 sent callback data: language:ro
+[2026-01-27 16:47:05.873302] Getting profile for user 1331489813.
+[2026-01-27 16:47:05.873859] Loading user profiles.
+[2026-01-27 16:47:05.874260] No profile found for user 1331489813.
+[2026-01-27 16:47:05.931346] User 1331489813 sent callback data: language:es
+[2026-01-27 16:47:06.802961] Getting profile for user 1331489813.
+[2026-01-27 16:47:06.803584] Loading user profiles.
+[2026-01-27 16:47:06.804079] No profile found for user 1331489813.
+[2026-01-27 16:47:06.875641] User 1331489813 sent callback data: save_lang
+[<built-in method now of type object at 0x00007FFAB1F75270>] Setting language for user 1331489813: es
+[2026-01-27 16:47:06.876461] Loading user profiles.
+[2026-01-27 16:47:06.876843] New user 1331489813. Creating profile.
+[2026-01-27 16:47:06.877142] Saving user profiles.
+[2026-01-27 16:47:06.877701] User profiles saved successfully.
+[2026-01-27 16:47:06.878018] Language for user 1331489813 updated.
+[2026-01-27 16:47:06.878307] User 1331489813 saved language: es.
+[2026-01-27 16:47:06.878592] Getting profile for user 1331489813.
+[2026-01-27 16:47:06.878920] Loading user profiles.
+[2026-01-27 16:47:06.893187] Profile found for user 1331489813.
+[2026-01-27 16:47:09.963985] Getting profile for user 1331489813.
+[2026-01-27 16:47:09.964512] Loading user profiles.
+[2026-01-27 16:47:09.964929] Profile found for user 1331489813.
+[2026-01-27 16:47:10.019686] User 1331489813 sent callback data: interest:politica
+[2026-01-27 16:47:10.869279] Getting profile for user 1331489813.
+[2026-01-27 16:47:10.869813] Loading user profiles.
+[2026-01-27 16:47:10.870324] Profile found for user 1331489813.
+[2026-01-27 16:47:10.936744] User 1331489813 sent callback data: interest:economia
+[2026-01-27 16:47:11.594511] Getting profile for user 1331489813.
+[2026-01-27 16:47:11.595134] Loading user profiles.
+[2026-01-27 16:47:11.595598] Profile found for user 1331489813.
+[2026-01-27 16:47:11.643453] User 1331489813 sent callback data: interest:cultura
+[2026-01-27 16:47:12.368741] Getting profile for user 1331489813.
+[2026-01-27 16:47:12.369264] Loading user profiles.
+[2026-01-27 16:47:12.369762] Profile found for user 1331489813.
+[2026-01-27 16:47:12.466412] User 1331489813 sent callback data: save_interests
+[2026-01-27 16:47:12.466920] Setting interests for user 1331489813: ['politica', 'economia', 'cultura']
+[2026-01-27 16:47:12.467242] Loading user profiles.
+[2026-01-27 16:47:12.467652] Saving user profiles.
+[2026-01-27 16:47:12.468206] User profiles saved successfully.
+[2026-01-27 16:47:12.468477] Interests for user 1331489813 updated.
+[2026-01-27 16:47:12.468755] User 1331489813 saved interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 16:47:12.469022] Getting profile for user 1331489813.
+[2026-01-27 16:47:12.469314] Loading user profiles.
+[2026-01-27 16:47:12.479947] Profile found for user 1331489813.
+[2026-01-27 16:47:30.282634] Getting profile for user 1331489813.
+[2026-01-27 16:47:30.283226] Loading user profiles.
+[2026-01-27 16:47:30.283652] Profile found for user 1331489813.
+[2026-01-27 16:49:00.025484] Getting profile for user 1331489813.
+[2026-01-27 16:49:00.025912] Loading user profiles.
+[2026-01-27 16:49:00.026361] Profile found for user 1331489813.
+[2026-01-27 16:49:00.026638] Executing daily news for 1331489813 in Zaragoza (es).
+[2026-01-27 16:49:00.026968] Fetching news for city: Zaragoza.
+[2026-01-27 16:49:00.672750] Found 10 articles for city: Zaragoza.
+[2026-01-27 16:49:00.673337] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 16:49:00.674688] Getting profile for user 1331489813.
+[2026-01-27 16:49:00.675066] Loading user profiles.
+[2026-01-27 16:49:00.675545] Profile found for user 1331489813.
+[2026-01-27 16:49:00.675876] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 16:49:00.676738] Error selecting and adapting news for city Zaragoza in es: Event loop is closed
+[2026-01-27 16:49:00.677102] Generating daily news script for city: Zaragoza in es.
+[2026-01-27 16:49:13.786887] Successfully generated daily news script for city: Zaragoza in es.
+[2026-01-27 16:49:13.787499] Generating audio from script.
+[2026-01-27 16:49:19.493282] Audio generated at output.ogg
+[2026-01-27 16:49:20.063408] Sent daily podcast to 1331489813.
+[2026-01-27 16:49:31.597781] Getting profile for user 1331489813.
+[2026-01-27 16:49:31.598351] Loading user profiles.
+[2026-01-27 16:49:31.598761] Profile found for user 1331489813.
+[2026-01-27 16:49:31.599072] User 1331489813 requested a podcast in es.
+[2026-01-27 16:49:31.599407] User 1331489813 requested a podcast for city: Madrid.
+[2026-01-27 16:49:31.795923] Fetching news for city: Madrid.
+[2026-01-27 16:49:32.462056] Found 10 articles for city: Madrid.
+[2026-01-27 16:49:32.462742] TOTAL RESULTS for Madrid: 10
+[2026-01-27 16:49:32.464742] Found 10 news articles for city: Madrid.
+[2026-01-27 16:49:32.465090] Getting profile for user 1331489813.
+[2026-01-27 16:49:32.465408] Loading user profiles.
+[2026-01-27 16:49:32.465833] Profile found for user 1331489813.
+[2026-01-27 16:49:32.466101] User 1331489813 has interests: ['politica', 'economia', 'cultura'].
+[2026-01-27 16:49:32.614115] Selecting and adapting news for city: Madrid with interests: ['politica', 'economia', 'cultura'] in es.
+[2026-01-27 16:50:24.070570] Successfully selected and adapted news for city: Madrid in es.
+[2026-01-27 16:50:24.071163] Curated news for user 1331489813.
+[2026-01-27 16:50:24.274787] Generating podcast script for city: Madrid in es.
+[2026-01-27 16:51:09.414720] Successfully generated podcast script for city: Madrid in es.
+[2026-01-27 16:51:09.415264] Generated podcast script for user 1331489813.
+[2026-01-27 16:51:09.613554] Generating audio from script.
+[2026-01-27 16:51:09.977401] Error generating audio: status_code: 400, body: {'errorMessage': 'Text passed is 4110 characters long. Max length allowed is 3000 characters', 'errorCode': 400}
+[2026-01-27 16:51:09.978128] Error generating audio for user 1331489813.
+[2026-01-27 16:51:10.046020] Getting profile for user 1331489813.
+[2026-01-27 16:51:10.046563] Loading user profiles.
+[2026-01-27 16:51:10.047046] Profile found for user 1331489813.
+[2026-01-27 16:51:10.047353] User 1331489813 requested help in es.
+[2026-01-27 17:10:08.845998] Fetching news for city: Technology.
+[2026-01-27 17:10:09.546665] Found 10 articles for city: Technology.
+[2026-01-27 17:10:09.547173] TOTAL RESULTS for Technology: 10
+[2026-01-27 17:10:09.548812] Generating audio from script.
+[2026-01-27 17:10:12.429784] Audio generated at output.ogg
+[2026-01-27 17:10:12.432381] Bot started.

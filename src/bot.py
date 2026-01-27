@@ -98,7 +98,9 @@ async def podcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     with open(audio_path, "rb") as audio:
         await update.message.reply_voice(
             voice=audio,
-            caption=get_translation(user_lang, "podcast_caption", city=city)
+            caption=get_translation(user_lang, "podcast_caption", city=city),
+            read_timeout=120,
+            write_timeout=120
         )
     send_log(datetime.now(), f"Sent podcast to user {user_id}.")
 
@@ -164,7 +166,9 @@ async def execute_daily_news(chat_id, city):
             await app.bot.send_voice(
                 chat_id=chat_id,
                 voice=audio,
-                caption=get_translation(user_lang, "podcast_caption", city=city)
+                caption=get_translation(user_lang, "podcast_caption", city=city),
+                read_timeout=120,
+                write_timeout=120
             )
         send_log(datetime.now(), f"Sent daily podcast to {chat_id}.")
     else:

@@ -1,200 +1,41 @@
-[2026-01-27 01:59:30.586712] Fetching news for city: Technology.
-[2026-01-27 01:59:31.443514] Found 10 articles for city: Technology.
-[2026-01-27 01:59:31.443980] TOTAL RESULTS for Technology: 10
-[2026-01-27 01:59:31.445540] Generating audio from script.
-[2026-01-27 01:59:34.440797] Audio generated at output.ogg
-[2026-01-27 01:59:34.444725] Bot started.
-[2026-01-27 02:00:54.427719] Fetching news for city: Technology.
-[2026-01-27 02:00:55.184126] Found 10 articles for city: Technology.
-[2026-01-27 02:00:55.184845] TOTAL RESULTS for Technology: 10
-[2026-01-27 02:00:55.186972] Generating audio from script.
-[2026-01-27 02:00:58.078193] Audio generated at output.ogg
-[2026-01-27 02:00:58.080995] Bot started.
-[2026-01-27 02:04:42.223118] Fetching news for city: Technology.
-[2026-01-27 02:04:42.998730] Found 10 articles for city: Technology.
-[2026-01-27 02:04:42.999278] TOTAL RESULTS for Technology: 10
-[2026-01-27 02:04:43.000973] Generating audio from script.
-[2026-01-27 02:04:46.069654] Audio generated at output.ogg
-[2026-01-27 02:04:46.072482] Bot started.
-[2026-01-27 02:04:50.940003] Getting profile for user 1331489813.
-[2026-01-27 02:04:50.940627] Loading user profiles.
-[2026-01-27 02:04:50.941315] Profile found for user 1331489813.
-[2026-01-27 02:04:50.941786] User 1331489813 requested help in es.
-[2026-01-27 02:04:52.319737] Getting profile for user 1331489813.
-[2026-01-27 02:04:52.320355] Loading user profiles.
-[2026-01-27 02:04:52.320942] Profile found for user 1331489813.
-[2026-01-27 02:05:17.740631] Fetching news for city: Technology.
-[2026-01-27 02:05:18.471292] Found 10 articles for city: Technology.
-[2026-01-27 02:05:18.471770] TOTAL RESULTS for Technology: 10
-[2026-01-27 02:05:18.473250] Generating audio from script.
-[2026-01-27 02:05:21.208632] Audio generated at output.ogg
-[2026-01-27 02:05:21.211347] Bot started.
-[2026-01-27 02:05:23.033221] Getting profile for user 1331489813.
-[2026-01-27 02:05:23.033711] Loading user profiles.
-[2026-01-27 02:05:23.034158] Profile found for user 1331489813.
-[2026-01-27 02:05:25.750132] Getting profile for user 1331489813.
-[2026-01-27 02:05:25.750659] Loading user profiles.
-[2026-01-27 02:05:25.751068] Profile found for user 1331489813.
-[2026-01-27 02:05:25.794769] User 1331489813 sent callback data: language:ro
-[2026-01-27 02:05:26.391379] Getting profile for user 1331489813.
-[2026-01-27 02:05:26.391960] Loading user profiles.
-[2026-01-27 02:05:26.392370] Profile found for user 1331489813.
-[2026-01-27 02:05:26.439301] User 1331489813 sent callback data: save_lang
-[<built-in method now of type object at 0x00007FFAA3165270>] Setting language for user 1331489813: ro
-[2026-01-27 02:05:26.440243] Loading user profiles.
-[2026-01-27 02:05:26.440755] Saving user profiles.
-[2026-01-27 02:05:26.441351] User profiles saved successfully.
-[2026-01-27 02:05:26.441631] Language for user 1331489813 updated.
-[2026-01-27 02:05:26.441922] User 1331489813 saved language: ro.
-[2026-01-27 02:05:26.442204] Getting profile for user 1331489813.
-[2026-01-27 02:05:26.442499] Loading user profiles.
-[2026-01-27 02:05:26.450874] Profile found for user 1331489813.
-[2026-01-27 02:05:47.366001] Getting profile for user 1331489813.
-[2026-01-27 02:05:47.366563] Loading user profiles.
-[2026-01-27 02:05:47.367030] Profile found for user 1331489813.
-[2026-01-27 02:05:47.499770] User 1331489813 sent callback data: interest:deportes
-[2026-01-27 02:05:48.159510] Getting profile for user 1331489813.
-[2026-01-27 02:05:48.160015] Loading user profiles.
-[2026-01-27 02:05:48.160544] Profile found for user 1331489813.
-[2026-01-27 02:05:48.207882] User 1331489813 sent callback data: save_interests
-[2026-01-27 02:05:48.208406] Setting interests for user 1331489813: ['politica', 'cultura', 'salud', 'ci', 'deportes']
-[2026-01-27 02:05:48.208777] Loading user profiles.
-[2026-01-27 02:05:48.209192] Saving user profiles.
-[2026-01-27 02:05:48.209747] User profiles saved successfully.
-[2026-01-27 02:05:48.210030] Interests for user 1331489813 updated.
-[2026-01-27 02:05:48.210298] User 1331489813 saved interests: ['politica', 'cultura', 'salud', 'ci', 'deportes'].
-[2026-01-27 02:05:48.210590] Getting profile for user 1331489813.
-[2026-01-27 02:05:48.210901] Loading user profiles.
-[2026-01-27 02:05:48.219316] Profile found for user 1331489813.
-[2026-01-27 02:05:55.067867] Getting profile for user 1331489813.
-[2026-01-27 02:05:55.068410] Loading user profiles.
-[2026-01-27 02:05:55.068839] Profile found for user 1331489813.
-[2026-01-27 02:05:55.069116] User 1331489813 requested help in ro.
-[2026-01-27 02:05:56.814932] Getting profile for user 1331489813.
-[2026-01-27 02:05:56.815484] Loading user profiles.
-[2026-01-27 02:05:56.816002] Profile found for user 1331489813.
-[2026-01-27 02:05:56.816312] User 1331489813 requested help in ro.
-[2026-01-27 02:06:01.110759] Getting profile for user 1331489813.
-[2026-01-27 02:06:01.111284] Loading user profiles.
-[2026-01-27 02:06:01.111726] Profile found for user 1331489813.
-[2026-01-27 02:06:03.043504] Getting profile for user 1331489813.
-[2026-01-27 02:06:03.044060] Loading user profiles.
-[2026-01-27 02:06:03.044519] Profile found for user 1331489813.
-[2026-01-27 02:06:03.098352] User 1331489813 sent callback data: language:de
-[2026-01-27 02:06:03.861027] Getting profile for user 1331489813.
-[2026-01-27 02:06:03.861531] Loading user profiles.
-[2026-01-27 02:06:03.861952] Profile found for user 1331489813.
-[2026-01-27 02:06:03.912309] User 1331489813 sent callback data: save_lang
-[<built-in method now of type object at 0x00007FFAA3165270>] Setting language for user 1331489813: de
-[2026-01-27 02:06:03.913173] Loading user profiles.
-[2026-01-27 02:06:03.913632] Saving user profiles.
-[2026-01-27 02:06:03.914296] User profiles saved successfully.
-[2026-01-27 02:06:03.914656] Language for user 1331489813 updated.
-[2026-01-27 02:06:03.914962] User 1331489813 saved language: de.
-[2026-01-27 02:06:07.788475] Getting profile for user 1331489813.
-[2026-01-27 02:06:07.789001] Loading user profiles.
-[2026-01-27 02:06:07.798061] Profile found for user 1331489813.
-[2026-01-27 02:06:07.798523] User 1331489813 requested help in de.
-[2026-01-27 02:06:11.302460] Getting profile for user 1331489813.
-[2026-01-27 02:06:11.303147] Loading user profiles.
-[2026-01-27 02:06:11.303736] Profile found for user 1331489813.
-[2026-01-27 02:06:12.855835] Getting profile for user 1331489813.
-[2026-01-27 02:06:12.856558] Loading user profiles.
-[2026-01-27 02:06:12.857050] Profile found for user 1331489813.
-[2026-01-27 02:06:12.907020] User 1331489813 sent callback data: language:es
-[2026-01-27 02:06:13.609196] Getting profile for user 1331489813.
-[2026-01-27 02:06:13.609752] Loading user profiles.
-[2026-01-27 02:06:13.610190] Profile found for user 1331489813.
-[2026-01-27 02:06:13.659451] User 1331489813 sent callback data: save_lang
-[<built-in method now of type object at 0x00007FFAA3165270>] Setting language for user 1331489813: es
-[2026-01-27 02:06:13.660425] Loading user profiles.
-[2026-01-27 02:06:13.660858] Saving user profiles.
-[2026-01-27 02:06:13.661497] User profiles saved successfully.
-[2026-01-27 02:06:13.661774] Language for user 1331489813 updated.
-[2026-01-27 02:06:13.662063] User 1331489813 saved language: es.
-[2026-01-27 02:07:56.846368] Fetching news for city: Technology.
-[2026-01-27 02:07:57.551501] Found 10 articles for city: Technology.
-[2026-01-27 02:07:57.551987] TOTAL RESULTS for Technology: 10
-[2026-01-27 02:07:57.553512] Generating audio from script.
-[2026-01-27 02:08:00.351658] Audio generated at output.ogg
-[2026-01-27 02:08:00.354549] Bot started.
-[2026-01-27 02:08:00.645378] Getting profile for user 1331489813.
-[2026-01-27 02:08:00.645931] Loading user profiles.
-[2026-01-27 02:08:00.646356] Profile found for user 1331489813.
-[2026-01-27 02:08:00.646636] User 1331489813 requested help in es.
-[2026-01-27 02:08:03.520310] Getting profile for user 1331489813.
-[2026-01-27 02:08:03.520849] Loading user profiles.
-[2026-01-27 02:08:03.521262] Profile found for user 1331489813.
-[2026-01-27 02:08:03.521546] User 1331489813 requested help in es.
-[2026-01-27 02:08:09.395035] Getting profile for user 1331489813.
-[2026-01-27 02:08:09.395604] Loading user profiles.
-[2026-01-27 02:08:09.396094] Profile found for user 1331489813.
-[2026-01-27 02:08:11.298699] Getting profile for user 1331489813.
-[2026-01-27 02:08:11.299236] Loading user profiles.
-[2026-01-27 02:08:11.299646] Profile found for user 1331489813.
-[2026-01-27 02:08:11.371443] User 1331489813 sent callback data: language:ro
-[2026-01-27 02:08:11.936171] Getting profile for user 1331489813.
-[2026-01-27 02:08:11.936756] Loading user profiles.
-[2026-01-27 02:08:11.937237] Profile found for user 1331489813.
-[2026-01-27 02:08:11.993286] User 1331489813 sent callback data: save_lang
-[<built-in method now of type object at 0x00007FFAA3165270>] Setting language for user 1331489813: ro
-[2026-01-27 02:08:11.994247] Loading user profiles.
-[2026-01-27 02:08:11.994699] Saving user profiles.
-[2026-01-27 02:08:11.995346] User profiles saved successfully.
-[2026-01-27 02:08:11.995670] Language for user 1331489813 updated.
-[2026-01-27 02:08:11.995954] User 1331489813 saved language: ro.
-[2026-01-27 02:08:19.746336] Getting profile for user 1331489813.
-[2026-01-27 02:08:19.746864] Loading user profiles.
-[2026-01-27 02:08:19.748244] Profile found for user 1331489813.
-[2026-01-27 02:08:19.748551] Getting profile for user 1331489813.
-[2026-01-27 02:08:19.748915] Loading user profiles.
-[2026-01-27 02:08:19.749357] Profile found for user 1331489813.
-[2026-01-27 02:08:23.001501] Getting profile for user 1331489813.
-[2026-01-27 02:08:23.002044] Loading user profiles.
-[2026-01-27 02:08:23.002460] Profile found for user 1331489813.
-[2026-01-27 02:08:23.130757] User 1331489813 sent callback data: save_interests
-[2026-01-27 02:08:23.131336] Setting interests for user 1331489813: ['politica', 'cultura', 'salud', 'ci', 'deportes']
-[2026-01-27 02:08:23.131677] Loading user profiles.
-[2026-01-27 02:08:23.132096] Saving user profiles.
-[2026-01-27 02:08:23.132664] User profiles saved successfully.
-[2026-01-27 02:08:23.132941] Interests for user 1331489813 updated.
-[2026-01-27 02:08:23.133204] User 1331489813 saved interests: ['politica', 'cultura', 'salud', 'ci', 'deportes'].
-[2026-01-27 02:08:23.133484] Getting profile for user 1331489813.
-[2026-01-27 02:08:23.133771] Loading user profiles.
-[2026-01-27 02:08:23.134904] Profile found for user 1331489813.
-[2026-01-27 02:08:26.260572] Getting profile for user 1331489813.
-[2026-01-27 02:08:26.261164] Loading user profiles.
-[2026-01-27 02:08:26.261622] Profile found for user 1331489813.
-[2026-01-27 02:08:27.525096] Getting profile for user 1331489813.
-[2026-01-27 02:08:27.525636] Loading user profiles.
-[2026-01-27 02:08:27.526088] Profile found for user 1331489813.
-[2026-01-27 02:08:27.586390] User 1331489813 sent callback data: language:de
-[2026-01-27 02:08:28.198704] Getting profile for user 1331489813.
-[2026-01-27 02:08:28.199270] Loading user profiles.
-[2026-01-27 02:08:28.199710] Profile found for user 1331489813.
-[2026-01-27 02:08:28.251571] User 1331489813 sent callback data: save_lang
-[<built-in method now of type object at 0x00007FFAA3165270>] Setting language for user 1331489813: de
-[2026-01-27 02:08:28.252479] Loading user profiles.
-[2026-01-27 02:08:28.252921] Saving user profiles.
-[2026-01-27 02:08:28.253465] User profiles saved successfully.
-[2026-01-27 02:08:28.253740] Language for user 1331489813 updated.
-[2026-01-27 02:08:28.254011] User 1331489813 saved language: de.
-[2026-01-27 02:08:31.391318] Getting profile for user 1331489813.
-[2026-01-27 02:08:31.391912] Loading user profiles.
-[2026-01-27 02:08:31.393370] Profile found for user 1331489813.
-[2026-01-27 02:08:31.393749] Getting profile for user 1331489813.
-[2026-01-27 02:08:31.394065] Loading user profiles.
-[2026-01-27 02:08:31.394462] Profile found for user 1331489813.
-[2026-01-27 02:08:33.815853] Getting profile for user 1331489813.
-[2026-01-27 02:08:33.816429] Loading user profiles.
-[2026-01-27 02:08:33.816963] Profile found for user 1331489813.
-[2026-01-27 02:08:33.879089] User 1331489813 sent callback data: save_interests
-[2026-01-27 02:08:33.879562] Setting interests for user 1331489813: ['politica', 'cultura', 'salud', 'ci', 'deportes']
-[2026-01-27 02:08:33.879905] Loading user profiles.
-[2026-01-27 02:08:33.880359] Saving user profiles.
-[2026-01-27 02:08:33.880924] User profiles saved successfully.
-[2026-01-27 02:08:33.881195] Interests for user 1331489813 updated.
-[2026-01-27 02:08:33.881454] User 1331489813 saved interests: ['politica', 'cultura', 'salud', 'ci', 'deportes'].
-[2026-01-27 02:08:33.881715] Getting profile for user 1331489813.
-[2026-01-27 02:08:33.882002] Loading user profiles.
-[2026-01-27 02:08:33.883409] Profile found for user 1331489813.
+[2026-01-27 17:03:39.527957] Fetching news for city: Technology.
+[2026-01-27 17:03:40.311858] Found 10 articles for city: Technology.
+[2026-01-27 17:03:40.312464] TOTAL RESULTS for Technology: 10
+[2026-01-27 17:03:40.314069] Generating audio from script.
+[2026-01-27 17:03:43.209527] Audio generated at output.ogg
+[2026-01-27 17:03:43.212187] Bot started.
+[2026-01-27 17:03:59.049282] Getting profile for user 1331489813.
+[2026-01-27 17:03:59.049869] Loading user profiles.
+[2026-01-27 17:03:59.050332] Profile found for user 1331489813.
+[2026-01-27 17:04:00.749219] Getting profile for user 1331489813.
+[2026-01-27 17:04:00.749791] Loading user profiles.
+[2026-01-27 17:04:00.750245] Profile found for user 1331489813.
+[2026-01-27 17:04:00.795787] User 1331489813 sent callback data: save_lang
+[<built-in method now of type object at 0x00007FFAC3D15270>] Setting language for user 1331489813: es
+[2026-01-27 17:04:00.796688] Loading user profiles.
+[2026-01-27 17:04:00.797099] Saving user profiles.
+[2026-01-27 17:04:00.797669] User profiles saved successfully.
+[2026-01-27 17:04:00.797979] Language for user 1331489813 updated.
+[2026-01-27 17:04:00.798260] User 1331489813 saved language: es.
+[2026-01-27 17:04:05.943478] Getting profile for user 1331489813.
+[2026-01-27 17:04:05.943998] Loading user profiles.
+[2026-01-27 17:04:05.944407] Profile found for user 1331489813.
+[2026-01-27 17:04:05.944680] User 1331489813 requested a podcast in es.
+[2026-01-27 17:04:05.944950] User 1331489813 requested a podcast for city: Zaragoza.
+[2026-01-27 17:04:06.146876] Fetching news for city: Zaragoza.
+[2026-01-27 17:04:06.772870] Found 10 articles for city: Zaragoza.
+[2026-01-27 17:04:06.773488] TOTAL RESULTS for Zaragoza: 10
+[2026-01-27 17:04:06.774900] Found 10 news articles for city: Zaragoza.
+[2026-01-27 17:04:06.775210] Getting profile for user 1331489813.
+[2026-01-27 17:04:06.775543] Loading user profiles.
+[2026-01-27 17:04:06.775929] Profile found for user 1331489813.
+[2026-01-27 17:04:06.776205] User 1331489813 has interests: ['politica', 'cultura', 'salud', 'ci', 'deportes'].
+[2026-01-27 17:04:06.912418] Selecting and adapting news for city: Zaragoza with interests: ['politica', 'cultura', 'salud', 'ci', 'deportes'] in es.
+[2026-01-27 17:04:06.913474] Error selecting and adapting news for city Zaragoza in es: Event loop is closed
+[2026-01-27 17:04:06.913933] Curated news for user 1331489813.
+[2026-01-27 17:04:07.072185] Generating podcast script for city: Zaragoza in es.
+[2026-01-27 17:04:31.686086] Successfully generated podcast script for city: Zaragoza in es.
+[2026-01-27 17:04:31.687300] Generated podcast script for user 1331489813.
+[2026-01-27 17:04:31.934048] Generating audio from script.
+[2026-01-27 17:04:41.512544] Audio generated at output.ogg
+[2026-01-27 17:04:41.514711] Generated audio at output.ogg for user 1331489813.

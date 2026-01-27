@@ -7,11 +7,7 @@ import os
 import asyncio
 import inspect
 from datetime import datetime, timezone
-try:
-    from zoneinfo import ZoneInfo
-except ImportError:
-    # Fallback for Python < 3.9, though usually not needed in modern envs
-    from backports.zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo
 
 # Configure logging
 logger = logging.getLogger(__name__)

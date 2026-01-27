@@ -1,0 +1,2 @@
+buscar un metodo para no tener tantos prompts en diferentes idiomas (La IA tiene que devolver siempre el output en el idioma que yo le diga)
+mejorar la latencia..

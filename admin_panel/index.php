@@ -149,6 +149,82 @@ if (file_exists($scheduled_jobs_file)) {
         $scheduled_jobs = $data;
     }
 }
+
+// --- ANALYTICS PARSING ---
+$podcasts_per_day = [];
+$popular_cities = [];
+$popular_topics = [];
+$tts_times = [];
+$last_tts_start = null;
+
+if (file_exists($logs_file)) {
+    $lines = file($logs_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        // Regex to capture timestamp and message: [YYYY-MM-DD HH:MM:SS.mmmmmm] Message
+        if (preg_match('/^\[(.*?)\]\s*(.*)$/', $line, $matches)) {
+            $ts_str = $matches[1];
+            $msg = $matches[2];
+            
+            try {
+                $dt = new DateTime($ts_str);
+                $date = $dt->format('Y-m-d');
+                $timestamp = (float)$dt->format('U.u');
+            } catch (Exception $e) { continue; }
+
+            // 1. Usage (Podcasts Generated)
+            if (strpos($msg, 'Sent podcast to user') !== false) {
+                if (!isset($podcasts_per_day[$date])) $podcasts_per_day[$date] = 0;
+                $podcasts_per_day[$date]++;
+            }
+
+            // 2. Popular Cities
+            if (preg_match('/requested a podcast for city:\s*(.*)\.$/i', $msg, $city_matches)) {
+                $city = ucwords(strtolower(trim($city_matches[1])));
+                if (!isset($popular_cities[$city])) $popular_cities[$city] = 0;
+                $popular_cities[$city]++;
+            }
+
+            // 3. Popular Topics
+            if (preg_match('/has interests:\s*\[(.*?)\]/i', $msg, $topic_matches)) {
+                $topics_raw = str_replace(["'", '"'], '', $topic_matches[1]);
+                foreach (explode(',', $topics_raw) as $t) {
+                    $t = ucfirst(strtolower(trim($t)));
+                    if (!empty($t)) {
+                        if (!isset($popular_topics[$t])) $popular_topics[$t] = 0;
+                        $popular_topics[$t]++;
+                    }
+                }
+            }
+
+            // 4. TTS Production Times
+            if (strpos($msg, 'Generating audio from script') !== false) {
+                $last_tts_start = $timestamp;
+            } elseif (strpos($msg, 'Audio generated at') !== false) {
+                if ($last_tts_start !== null) {
+                    $duration = $timestamp - $last_tts_start;
+                    if ($duration > 0 && $duration < 600) $tts_times[] = round($duration, 2);
+                    $last_tts_start = null;
+                }
+            }
+        }
+    }
+}
+
+ksort($podcasts_per_day);
+arsort($popular_cities);
+arsort($popular_topics);
+
+$avg_tts = count($tts_times) > 0 ? round(array_sum($tts_times) / count($tts_times), 2) : 0;
+
+$chart_data = [
+    'dates' => array_keys($podcasts_per_day),
+    'counts' => array_values($podcasts_per_day),
+    'cities' => array_keys(array_slice($popular_cities, 0, 10)),
+    'city_counts' => array_values(array_slice($popular_cities, 0, 10)),
+    'topics' => array_keys(array_slice($popular_topics, 0, 10)),
+    'topic_counts' => array_values(array_slice($popular_topics, 0, 10)),
+    'avg_tts' => $avg_tts
+];
 ?>
 
 <!DOCTYPE html>
@@ -157,11 +233,31 @@ if (file_exists($scheduled_jobs_file)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewsPodBot Admin Panel</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Admin Panel</h1>
+
+        <div class="card">
+            <h2>Analytics Dashboard</h2>
+            <div class="charts-grid">
+                <div class="chart-container full-width">
+                    <canvas id="usageChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="citiesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="topicsChart"></canvas>
+                </div>
+                <div class="stat-box">
+                    <h3>Avg Audio Generation Time</h3>
+                    <p class="big-number"><?php echo $avg_tts; ?>s</p>
+                </div>
+            </div>
+        </div>
 
         <div class="card">
             <h2>Statistics</h2>
@@ -247,6 +343,9 @@ if (file_exists($scheduled_jobs_file)) {
             </div>
         </div>
     </div>
+    <script>
+        window.chartData = <?php echo json_encode($chart_data); ?>;
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
