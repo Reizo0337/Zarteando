@@ -247,11 +247,12 @@ async def configure(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 def interests_keyboard(user_lang, selected_interests):
+    interest_translations = get_translation(user_lang, "interests")
     keyboard = [
         [
             InlineKeyboardButton(
-                f"{'✅' if interest in selected_interests else '⬜️'} {interest.capitalize()}",
-                callback_data=f"interest:{interest}"
+                f"{'✅' if interest in selected_interests else '⬜️'} {interest_translations.get(interest, interest.capitalize())}",
+                callback_data=f"interest:{interest}",
             )
         ]
         for interest in AVAILABLE_INTERESTS
@@ -342,8 +343,10 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if user_temp_selection[user_id].get('onboarding'):
             await query.edit_message_text(get_translation(current_lang, "setup_complete"))
         else:
+            interest_translations = get_translation(current_lang, "interests")
+            translated_interests = [interest_translations.get(i, i.capitalize()) for i in selected_interests]
             await query.edit_message_text(
-                get_translation(current_lang, "interests_saved") + ", ".join(selected_interests)
+                get_translation(current_lang, "interests_saved") + ", ".join(translated_interests)
             )
         if user_id in user_temp_selection:
             del user_temp_selection[user_id]

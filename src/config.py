@@ -12,4 +12,7 @@ AVAILABLE_INTERESTS = [
 AVAILABLE_LANGS = [
     "es",
     "en",
+    "fr",
+    "de",
+    "ro",
 ]

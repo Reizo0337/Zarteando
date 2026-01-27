@@ -36,6 +36,16 @@ TRANSLATIONS = {
                          "Vamos a configurar tu perfil para darte las mejores noticias.\n\n"
                          "Primero, selecciona tu idioma:",
         "lets_configure_interests": "✅ Idioma guardado.\n\nAhora selecciona tus temas de interés para personalizar las noticias:",
+        "interests": {
+            "politica": "Política",
+            "economia": "Economía",
+            "tecnologia": "Tecnología",
+            "deportes": "Deportes",
+            "cultura": "Cultura",
+            "sociedad": "Sociedad",
+            "ciencia": "Ciencia",
+            "salud": "Salud"
+        },
         "setup_complete": "✅ ¡Configuración completa!\n\nYa puedes usar /podcast <ciudad> para escuchar las noticias."
     },
     "en": {
@@ -73,6 +83,16 @@ TRANSLATIONS = {
                          "Let's set up your profile to get the best news.\n\n"
                          "First, select your language:",
         "lets_configure_interests": "✅ Language saved.\n\nNow select your interests to customize the news:",
+        "interests": {
+            "politica": "Politics",
+            "economia": "Economy",
+            "tecnologia": "Technology",
+            "deportes": "Sports",
+            "cultura": "Culture",
+            "sociedad": "Society",
+            "ciencia": "Science",
+            "salud": "Health"
+        },
         "setup_complete": "✅ Setup complete!\n\nYou can now use /podcast <city> to listen to the news."
     },
     "de": {
@@ -110,6 +130,16 @@ TRANSLATIONS = {
                          "Lass uns dein Profil einrichten, um dir die besten Nachrichten zu liefern.\n\n"
                          "Zuerst, wähle deine Sprache:",
         "lets_configure_interests": "✅ Sprache gespeichert.\n\nWähle nun deine Interessen aus, um die Nachrichten zu personalisieren:",
+        "interests": {
+            "politica": "Politik",
+            "economia": "Wirtschaft",
+            "tecnologia": "Technologie",
+            "deportes": "Sport",
+            "cultura": "Kultur",
+            "sociedad": "Gesellschaft",
+            "ciencia": "Wissenschaft",
+            "salud": "Gesundheit"
+        },
         "setup_complete": "✅ Einrichtung abgeschlossen!\n\nDu kannst jetzt /podcast <Stadt> verwenden, um die Nachrichten anzuhören."
     },
     "fr": {
@@ -147,6 +177,16 @@ TRANSLATIONS = {
                          "Configurons ton profil pour obtenir les meilleures nouvelles.\n\n"
                          "Tout d'abord, sélectionne ta langue :",
         "lets_configure_interests": "✅ Langue enregistrée.\n\nMaintenant, sélectionne tes centres d'intérêt pour personnaliser les nouvelles :",
+        "interests": {
+            "politica": "Politique",
+            "economia": "Économie",
+            "tecnologia": "Technologie",
+            "deportes": "Sports",
+            "cultura": "Culture",
+            "sociedad": "Société",
+            "ciencia": "Science",
+            "salud": "Santé"
+        },
         "setup_complete": "✅ Configuration terminée !\n\nTu peux maintenant utiliser /podcast <ville> pour écouter les nouvelles."
     },
     "ro": {
@@ -184,6 +224,16 @@ TRANSLATIONS = {
                          "Să-ți configurăm profilul pentru a primi cele mai bune știri.\n\n"
                          "Mai întâi, selectează-ți limba:",
         "lets_configure_interests": "✅ Limba salvată.\n\nAcum selectează-ți interesele pentru a personaliza știrile:",
+        "interests": {
+            "politica": "Politică",
+            "economia": "Economie",
+            "tecnologia": "Tehnologie",
+            "deportes": "Sport",
+            "cultura": "Cultură",
+            "sociedad": "Societate",
+            "ciencia": "Știință",
+            "salud": "Sănătate"
+        },
         "setup_complete": "✅ Configurare finalizată!\n\nAcum poți folosi /podcast <oraș> pentru a asculta știrile."
     }
 }
@@ -192,4 +242,9 @@ def get_translation(lang, key, **kwargs):
     """
     Retrieves a translated string for a given language and key.
     """
-    return TRANSLATIONS.get(lang, TRANSLATIONS["es"]).get(key, key).format(**kwargs)
+    translation_table = TRANSLATIONS.get(lang, TRANSLATIONS["es"])
+    translation = translation_table.get(key, key)
+    
+    if kwargs and isinstance(translation, str):
+        return translation.format(**kwargs)
+    return translation
