@@ -7,7 +7,6 @@ client = AsyncClient(timeout=300)
 async def podcast_script(city, filtered_news_text, lang="es"):
     send_log(datetime.now(), f"Generating podcast script for city: {city} in {lang}.")
 
-    client = AsyncClient(timeout=300)
     prompt = f"""
         Eres Zarteando, el presentador de un podcast de noticias.
         Tu tarea es crear un guion de podcast corto y atractivo sobre las noticias de hoy en {city}.
@@ -37,15 +36,15 @@ async def podcast_script(city, filtered_news_text, lang="es"):
         """
 
     try:
-        async with AsyncClient(timeout=300) as client:
-            response = await client.generate(
-                model="gemma3:4b",
-                prompt=prompt,
-                options={"num_ctx": 8192}
-            )
-            script = response.get("response", "")
-            send_log(datetime.now(), f"Successfully generated podcast script for city: {city} in {lang}.")
-            return script
+        client = AsyncClient(timeout=300)
+        response = await client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+            options={"num_ctx": 8192}
+        )
+        script = response.get("response", "")
+        send_log(datetime.now(), f"Successfully generated podcast script for city: {city} in {lang}.")
+        return script
     except Exception as e:
         send_log(datetime.now(), f"Error generating podcast script for city {city} in {lang}: {e}")
         return get_translation(lang, "error_generating_script", city=city)
@@ -57,15 +56,15 @@ async def daily_summary(city, news, lang="es"):
     prompt = f"Resume las noticias más importantes de hoy en {city}. El output debe estar en {lang}. IMPORTANTE: No uses formato Markdown, solo texto plano:\n{news}"
 
     try:
-        async with AsyncClient(timeout=300) as client:
-            response = await client.generate(
-                model="gemma3:4b",
-                prompt=prompt,
-                options={"num_ctx": 8192}
-            )
-            summary = response.get("response", "")
-            send_log(datetime.now(), f"Successfully generated daily summary for city: {city} in {lang}.")
-            return summary
+        client = AsyncClient(timeout=300)
+        response = await client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+            options={"num_ctx": 8192}
+        )
+        summary = response.get("response", "")
+        send_log(datetime.now(), f"Successfully generated daily summary for city: {city} in {lang}.")
+        return summary
     except Exception as e:
         send_log(datetime.now(), f"Error generating daily summary for city {city} in {lang}: {e}")
         return get_translation(lang, "error_generating_summary", city=city)
@@ -103,16 +102,16 @@ async def select_and_adapt_news(city, news, user_interests, lang="es"):
         """
 
     try:
-        async with AsyncClient(timeout=300) as client:
-            response = await client.generate(
-                model="gemma3:4b",
-                prompt=prompt,
-                options={"num_ctx": 8192}
-            )
-            curated_news = response.get("response", "")
-            send_log(datetime.now(), f"Successfully selected and adapted news for city: {city} in {lang}.")
-            send_log(datetime.now(), f"Curated news: {curated_news}")
-            return curated_news
+        client = AsyncClient(timeout=300)
+        response = await client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+            options={"num_ctx": 8192}
+        )
+        curated_news = response.get("response", "")
+        send_log(datetime.now(), f"Successfully selected and adapted news for city: {city} in {lang}.")
+        send_log(datetime.now(), f"Curated news: {curated_news}")
+        return curated_news
     except Exception as e:
         send_log(datetime.now(), f"Error selecting and adapting news for city {city} in {lang}: {e}")
         return get_translation(lang, "error_selecting_news", city=city)
@@ -151,15 +150,15 @@ async def daily_news_script(city, filtered_news_text, lang="es"):
         """
 
     try:
-        async with AsyncClient(timeout=300) as client:
-            response = await client.generate(
-                model="gemma3:4b",
-                prompt=prompt,
-                options={"num_ctx": 8192}
-            )
-            script = response.get("response", "")
-            send_log(datetime.now(), f"Successfully generated daily news script for city: {city} in {lang}.")
-            return script
+        client = AsyncClient(timeout=300)
+        response = await client.generate(
+            model="gemma3:4b",
+            prompt=prompt,
+            options={"num_ctx": 8192}
+        )
+        script = response.get("response", "")
+        send_log(datetime.now(), f"Successfully generated daily news script for city: {city} in {lang}.")
+        return script
     except Exception as e:
         send_log(datetime.now(), f"Error generating daily news script for city {city} in {lang}: {e}")
         return get_translation(lang, "error_generating_script", city=city)
